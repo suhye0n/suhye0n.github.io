@@ -20,8 +20,6 @@
     font-size: inherit;
     list-style: none;
     box-sizing: border-box;
-    text-decoration-line: none;
-    color: var(--font-color);
 }
 
 html {

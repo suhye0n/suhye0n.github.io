@@ -17,6 +17,10 @@ export default App;
 </script>
 
 <style>
+a {
+    text-decoration-line: none;
+    color: var(--font-color);
+}
 
 .header {
     position: fixed;
