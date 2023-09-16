@@ -1,6 +1,4 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/suhye0n.github.io/'
-    : '/',
-    outputDir: 'docs'
+  publicPath: '/',
+  outputDir: './docs'
 }
