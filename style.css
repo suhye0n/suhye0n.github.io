@@ -10,6 +10,7 @@
     --transition: all 0.4s;
     --border-radius: 5px;
     --container-padding: 20px;
+    scroll-behavior: smooth;
 }
 
 * {
@@ -74,12 +75,6 @@ body {
     margin-left: auto;
     gap: 20px;
     font-size: 14px;
-}
-
-.main {
-    width: 90%;
-    max-width: var(--content-width);
-    margin: auto;
 }
 
 .footer {
