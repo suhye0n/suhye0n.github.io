@@ -12,45 +12,33 @@
         <div id="2" class="container skills">
             <h1>#SKILLS</h1>
             <h4>Frontent</h4>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('HTML5')" @mouseout="hideTooltip">
-                <i class="fab fa-html5 fa-2x"></i>
-                <div v-if="currentTooltip === 'HTML5'" class="tooltip">HTML5</div>
+            <div class="tag">
+                #HTML5 <i class="fab fa-html5" />
             </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('CSS3')" @mouseout="hideTooltip">
-                <i class="fab fa-css3-alt fa-2x"></i>
-                <div v-if="currentTooltip === 'CSS3'" class="tooltip">CSS3</div>
+            <div class="tag">
+                #CSS3 <i class="fab fa-css3" />
             </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('JS')" @mouseout="hideTooltip">
-                <i class="fab fa-js-square fa-2x"></i>
-                <div v-if="currentTooltip === 'JS'" class="tooltip">JavaScript</div>
+            <div class="tag">
+                #JavaScript <i class="fab fa-js-square" />
             </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('React')" @mouseout="hideTooltip">
-                <i class="fab fa-react fa-2x"></i>
-                <div v-if="currentTooltip === 'React'" class="tooltip">React</div>
+            <div class="tag">
+                #React <i class="fab fa-react" />
             </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('JQuery')" @mouseout="hideTooltip">
-                <i class="fab fa-jquery fa-2x"></i>
-                <div v-if="currentTooltip === 'JQuery'" class="tooltip">JQuery</div>
-            </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('Bootstrap')" @mouseout="hideTooltip">
-                <i class="fab fa-bootstrap fa-2x"></i>
-                <div v-if="currentTooltip === 'Bootstrap'" class="tooltip">Bootstrap</div>
+            <div class="tag">
+                #Bootstrap <i class="fab fa-bootstrap" />
             </div>
 
             <h4>Version Control</h4>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('git')" @mouseout="hideTooltip">
-                <i class="fab fa-git fa-2x"></i>
-                <div v-if="currentTooltip === 'git'" class="tooltip">git</div>
+            <div class="tag">
+                #git <i class="fab fa-git" />
             </div>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('GitHub')" @mouseout="hideTooltip">
-                <i class="fab fa-github fa-2x"></i>
-                <div v-if="currentTooltip === 'GitHub'" class="tooltip">GitHub</div>
+            <div class="tag">
+                #GitHub <i class="fab fa-github" />
             </div>
 
             <h4>Communication</h4>
-            <div class="tooltip-wrapper" @mouseover="showTooltip('Figma')" @mouseout="hideTooltip">
-                <i class="fab fa-figma fa-2x"></i>
-                <div v-if="currentTooltip === 'Figma'" class="tooltip">Figma</div>
+            <div class="tag">
+                #Figma <i class="fab fa-figma" />
             </div>
 
             <!--h4>Certificate</h4-->
@@ -58,7 +46,11 @@
         <div id="3" class="container">
             <h1>#ARCHIVING</h1>
             <h4>GitHub</h4>
-            <a href="https://github.com/suhye0n">github.com/suhye0n</a>
+            <div class="tag">
+                <a href="https://github.com/suhye0n">
+                    <i class="fa fa-link" /> github.com/suhye0n
+                </a>
+            </div>
         </div>
         <div id="4" class="container">
             <h1>#PROJECTS</h1>
@@ -144,11 +136,12 @@ export default {
     text-align: left;
     display: inline;
     border-radius: calc(var(--border-radius) + 15px);
-    padding: 6px 14px;
     background-color: var(--point-color2);
-    font-weight: 500;
+    padding: 6px 14px;
+    font-weight: 400;
     text-transform: capitalize;
     color: #fff;
+    box-shadow: 0px 2px 4px 0px var(--shadow-color);
 }
 
 .container img {
@@ -159,19 +152,43 @@ export default {
     text-align: center;
 }
 
+.award img {
+    cursor: pointer;
+    margin: 10px 12px;
+    border-radius: var(--border-radius);
+    box-shadow: 9px 7px 0px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.award img:hover {
+    opacity: .6;
+}
+
 .skills i {
     margin-right: 5px;
 }
 
-.award img {
-    margin: 10px 12px;
-    border-radius: var(--border-radius);
-    box-shadow: 9px 7px 0px var(--shadow-color);
+h4 {
+    margin: 14px 0 6px;
+    color: var(--point-color2);
 }
 
-.tooltip-wrapper {
+.tag {
     position: relative;
-    display: inline-block;
+    display: inline;
+    border-radius: calc(var(--border-radius) + 15px);
+    background-color: #f0ede6;
+    padding: 6px 14px;
+    font-weight: 400;
+    color: var(--font-color);
+    box-shadow: inset 3px 3px 6px var(--shadow-color), 2px 2px 4px var(--shadow-color);
+    margin-right: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tag:hover {
+    opacity: .6;
 }
 
 .tooltip {
