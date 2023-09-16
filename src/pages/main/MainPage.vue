@@ -98,4 +98,20 @@ export default {
     max-height: 90%;
     border: 5px solid white;
 }
+
+.container {
+    background: var(--header-background-color);
+    box-shadow: 0px 2px 4px 0px var(--shadow-color);
+	z-index: 2;
+    border-radius: var(--border-radius);
+    padding: var(--container-padding);
+    margin: 30px;
+}
+
+.container img {
+    width: 200px;
+    display: block;
+    margin-bottom: 20px;
+}
+
 </style>
