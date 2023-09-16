@@ -52,8 +52,10 @@
                 </a>
             </div>
         </div>
-        <div id="4" class="container">
+        <div id="4" class="container project">
             <h1>#PROJECTS</h1>
+            <br />
+            <img src="/bokmark/1.png" @click="openDetail1()" />
         </div>
         <div id="5" class="container award">
             <h1>#AWARD</h1>
@@ -62,11 +64,29 @@
             <img src="/award2.png" @click="openModal('/award2.png')" />
         </div>
         <div v-if="showModal" class="image-modal" @click="closeModal">
-            <img :src="currentImage" alt="Full size award image" />
+            <img :src="currentAward" alt="Full size award image" />
         </div>
-        <div id="6" class="container">
+
+        <div v-if="showDetail1" class="detail-modal" @click="closeDetail">
+            <div class="container" @click.stop>
+                <img :src="currentImage" alt="" />
+                <p class="controller">
+                    <span @click="prevImage"><i class="fa fa-arrow-left" /></span>
+                    <span @click="nextImage"><i class="fa fa-arrow-right" /></span>
+                </p>
+                <p class="pagination">
+                    <span v-for="(image, index) in images" :key="index" @click="jumpToImage(index)"
+                        :class="{ 'active-button': currentImageIndex === index }">
+                    </span>
+                </p>
+
+                <h4>레시피 공유</h4>
+            </div>
+        </div>
+
+        <!--div id="6" class="container">
             <h1>#CAREER</h1>
-        </div>
+        </div-->
     </div>
 </template>
 
@@ -75,25 +95,64 @@ export default {
     data() {
         return {
             showModal: false,
-            currentImage: '',
-            currentTooltip: null
+            showDetail1: false,
+            currentAward: '',
+            currentTooltip: null,
+            currentImageIndex: 0,
+            images: ["/bokmark/1.png", "/bokmark/2.png"],
         };
+    },
+    computed: {
+        currentImage() {
+            return this.images[this.currentImageIndex];
+        },
     },
     methods: {
         openModal(imageUrl) {
-            this.currentImage = imageUrl;
+            this.currentAward = imageUrl;
             this.showModal = true;
+        },
+        openDetail1() {
+            this.showDetail1 = true;
         },
         closeModal() {
             this.showModal = false;
+        },
+        closeDetail() {
+            this.showDetail1 = false;
         },
         showTooltip(tooltipText) {
             this.currentTooltip = tooltipText;
         },
         hideTooltip() {
             this.currentTooltip = null;
-        }
-    }
+        },
+        prevImage() {
+            if (this.currentImageIndex > 0) {
+                this.currentImageIndex--;
+            } else {
+                this.currentImageIndex = this.images.length - 1;
+            }
+        },
+        nextImage() {
+            if (this.currentImageIndex < this.images.length - 1) {
+                this.currentImageIndex++;
+            } else {
+                this.currentImageIndex = 0;
+            }
+        },
+        jumpToImage(index) {
+            this.currentImageIndex = index;
+        },
+    },
+    mounted() {
+        this.autoSlide = setInterval(() => {
+            this.nextImage();
+        }, 4000);
+    },
+    beforeUnmount() {
+        clearInterval(this.autoSlide);
+    },
 }
 </script>
 
@@ -121,6 +180,84 @@ export default {
     max-width: 90%;
     max-height: 90%;
     border: 5px solid white;
+}
+
+.detail-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.detail-modal h4 {
+    margin: 20px 0;
+}
+
+.detail-modal .container {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 90%;
+    max-width: 750px;
+    height: 70%;
+}
+
+.detail-modal .container img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.controller {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 90px));
+    width: 80%;
+    max-width: 670px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+
+.controller span {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .6);
+    padding: 12px 18px;
+    margin: 0 30px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+    overflow: hidden;
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.pagination span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: gray;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.pagination span.active-button {
+    background: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -152,7 +289,8 @@ export default {
     text-align: center;
 }
 
-.award img {
+.award img,
+.project img {
     cursor: pointer;
     margin: 30px 12px;
     border-radius: var(--border-radius);
@@ -160,7 +298,12 @@ export default {
     transition: var(--transition);
 }
 
-.award img:hover {
+.project img {
+    width: 40%;
+}
+
+.award img:hover,
+.project img:hover {
     opacity: .6;
 }
 
