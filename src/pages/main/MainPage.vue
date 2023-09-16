@@ -3,10 +3,10 @@
         <div id="1" class="container about">
             <h1>#ABOUT ME</h1>
             <ul>
-                <li><i class="xi-user" /> 박수현</li>
-                <li><i class="xi-calendar" /> 01.11.21</li>
-                <li><i class="xi-mail" /> claphyeon@kakao.com</li>
-                <li><i class="xi-pen" /> 금오공과대학교 컴퓨터공학과</li>
+                <li><i class="fa fa-user" /> 박수현</li>
+                <li><i class="fa fa-calendar" /> 01.11.21</li>
+                <li><i class="fa fa-envelope" /> claphyeon@kakao.com</li>
+                <li><i class="fa fa-pen" /> 금오공과대학교 컴퓨터공학과</li>
             </ul>
         </div>
         <div id="2" class="container skills">
@@ -154,9 +154,9 @@ export default {
 
 .award img {
     cursor: pointer;
-    margin: 10px 12px;
+    margin: 30px 12px;
     border-radius: var(--border-radius);
-    box-shadow: 9px 7px 0px var(--shadow-color);
+    box-shadow: 8px 6px 0px var(--shadow-color);
     transition: var(--transition);
 }
 
