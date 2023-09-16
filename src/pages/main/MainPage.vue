@@ -16,17 +16,17 @@
             <img src="/react.png" />
             <img src="/jquery.png" />
             <img src="/bootstrap.png" />
-            
+
             <h4>Backend</h4>
             <img src="/firebase.png" />
-            
+
             <h4>Version Control</h4>
             <img src="/git.png" />
             <img src="/github.png" />
-            
+
             <h4>Communication</h4>
             <img src="/figma.png" />
-            
+
             <!--h4>Certificate</h4-->
         </div>
         <div id="3" class="container">
@@ -39,8 +39,11 @@
         </div>
         <div id="5" class="container">
             <h1>AWARD</h1>
-            <img src="/award1.png" />
-            <img src="/award2.png" />
+            <img src="/award1.png" @click="openModal('/award1.png')" />
+            <img src="/award2.png" @click="openModal('/award2.png')" />
+        </div>
+        <div v-if="showModal" class="image-modal" @click="closeModal">
+            <img :src="currentImage" alt="Full size award image" />
         </div>
         <div id="6" class="container">
             <h1>CAREER</h1>
@@ -52,11 +55,47 @@
 export default {
     data() {
         return {
+            showModal: false,
+            currentImage: ''
         };
     },
     methods: {
+        openModal(imageUrl) {
+            this.currentImage = imageUrl;
+            this.showModal = true;
+        },
+        closeModal() {
+            this.showModal = false;
+        }
     },
     mounted() {
     },
 }
 </script>
+
+<style>
+.main {
+    width: 90%;
+    max-width: var(--content-width);
+    margin: auto;
+}
+
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid white;
+}
+</style>
