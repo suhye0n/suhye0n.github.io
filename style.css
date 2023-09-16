@@ -5,12 +5,11 @@
     --background-color: #f8f4fa;
     --header-background-color: #fefaff;
     --font-size: 16px;
-    --font-color: #000;
+    --font-color: #726f69;
     --content-width: 950px;
     --transition: all 0.4s;
-    --border-radius: 5px;
-    --container-padding: 20px;
-    scroll-behavior: smooth;
+    --border-radius: 10px;
+    --container-padding: 40px;
 }
 
 * {
@@ -20,8 +19,6 @@
     font-size: inherit;
     list-style: none;
     box-sizing: border-box;
-    text-decoration-line: none;
-    color: var(--font-color);
 }
 
 html {
