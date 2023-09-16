@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        @suhye0n's Portfolio
+        <a href="#">@suhye0n's Portfolio</a>
         <div class="header-btn">
             <a href="#1">ABOUT ME</a>
             <a href="#2">SKILLS</a>
