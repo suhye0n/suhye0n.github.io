@@ -20,8 +20,31 @@ const App = {
             testString: '문자열'
         }
     },
-    mounted() {
+    methods: {
+        setupSmoothScroll() {
+            const links = document.querySelectorAll('.header-btn a');
+            const headerHeight = document.querySelector('.header').offsetHeight;
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const href = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(href);
+
+                    const offsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top;
+
+                    window.scrollTo({
+                        top: offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
     },
+    mounted() {
+        this.setupSmoothScroll();
+    }
 }
 
 export default App;
