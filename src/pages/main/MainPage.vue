@@ -64,8 +64,10 @@
         <div id="5" class="container award">
             <h1>#AWARD</h1>
             <br />
-            <img src="/award1.png" @click="openModal('/award1.png')" />
-            <img src="/award2.png" @click="openModal('/award2.png')" />
+            <div class="award-grid">
+                <img src="/award1.png" @click="openModal('/award1.png')" />
+                <img src="/award2.png" @click="openModal('/award2.png')" />
+            </div>
         </div>
         <div v-if="showModal" class="image-modal" @click="closeModal">
             <img :src="currentAward" alt="" />
@@ -356,6 +358,18 @@ export default {
 }
 
 .image-grid img {
+    width: calc(100% - 20px) !important;
+    height: 80%;
+    object-fit: cover;
+}
+
+.award-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.award-grid img {
     width: calc(100% - 20px) !important;
     height: 80%;
     object-fit: cover;
