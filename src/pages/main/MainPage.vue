@@ -58,6 +58,7 @@
             <div class="image-grid">
                 <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
                 <img src="/cafe/1.png" @click="openDetail('cafe')" />
+                <img src="/recipe/1.png" @click="openDetail('recipe')" />
             </div>
         </div>
         <div id="5" class="container award">
@@ -84,23 +85,105 @@
                 </p>
                 <div v-if="currentDetailType === 'bokmark'">
                     <h3>bokmark</h3>
-                    <h4>주요 기능</h4>
+                    <h4>개요</h4>
+                    <ul>
+                        <li>- 북마크를 공유할 수 있는 웹 플랫폼을 개발하였습니다.</li>
+                        <li>- 사용자는 북마크를 웹 서랍에 추가하여 모아볼 수 있습니다.</li>
+                        <li>- 사용자는 북마크 스크랩 기능을 사용할 수 있습니다.</li>
+                    </ul>
                     <h4>GitHub</h4>
+                    <div class="tag">
+                        <a href="https://github.com/suhye0n/bokmark">
+                            <i class="fa fa-link" /> github.com/suhye0n/bokmark
+                        </a>
+                    </div>
                     <h4>URL</h4>
+                    <div class="tag">
+                        <a href="https://b0kmark.web.app/">
+                            <i class="fa fa-link" /> b0kmark.web.app
+                        </a>
+                    </div>
                     <h4>Front-end</h4>
+                    <div class="tag">
+                        #React <i class="fab fa-react" />
+                    </div>
                     <h4>Back-end</h4>
+                    <div class="tag">
+                        #Firebase Authentication
+                    </div>
+                    <div class="tag">
+                        #Firebase Storage
+                    </div>
                     <h4>Database</h4>
+                    <div class="tag">
+                        #Firebase Database
+                    </div>
                     <h4>Deployment</h4>
+                    <div class="tag">
+                        #Firebase
+                    </div>
+                </div>
+                <div v-if="currentDetailType === 'recipe'">
+                    <h3>레시피 공유</h3>
+                    <h4>개요</h4>
+                    <ul>
+                        <li>- 음식 레시피를 공유할 수 있는 웹 플랫폼을 개발하였습니다.</li>
+                        <li>- 사용자는 레시피를 업로드하고, 다른 사용자가 업로드한 레시피를 검색하고 댓글을 달 수 있습니다.</li>
+                    </ul>
+                    <h4>GitHub</h4>
+                    <div class="tag">
+                        <a href="https://github.com/suhye0n/recipe-share">
+                            <i class="fa fa-link" /> github.com/suhye0n/recipe-share
+                        </a>
+                    </div>
+                    <h4>URL</h4>
+                    <div class="tag">
+                        <a href="https://recipe-share-0.web.app/">
+                            <i class="fa fa-link" /> recipe-share-0.web.app/
+                        </a>
+                    </div>
+                    <h4>Front-end</h4>
+                    <div class="tag">
+                        #React <i class="fab fa-react" />
+                    </div>
+                    <h4>Back-end</h4>
+                    <div class="tag">
+                        #Firebase Authentication
+                    </div>
+                    <h4>Database</h4>
+                    <div class="tag">
+                        #Firebase Database
+                    </div>
+                    <h4>Deployment</h4>
+                    <div class="tag">
+                        #Firebase
+                    </div>
                 </div>
                 <div v-if="currentDetailType === 'cafe'">
-                    <h3>카페 메뉴 관리</h3>
-                    <h4>주요 기능</h4>
+                    <h2>카페 메뉴 관리</h2>
+                    <h4>개요</h4>
+                    <ul>
+                        <li>- 카페 메뉴를 관리 및 주문 할 수 있는 웹 플랫폼을 개발하였습니다.</li>
+                        <li>- 사용자는 카페 메뉴를 추가하고, 추가된 상품을 주문할 수 있습니다.</li>
+                    </ul>
                     <h4>GitHub</h4>
-                    <h4>URL</h4>
+                    <div class="tag">
+                        <a href="https://github.com/suhye0n/cafe-menu">
+                            <i class="fa fa-link" /> github.com/suhye0n/cafe-menu
+                        </a>
+                    </div>
                     <h4>Front-end</h4>
+                    <div class="tag">
+                        #Vue.js <i class="fab fa-vuejs" />
+                    </div>
                     <h4>Back-end</h4>
+                    <div class="tag">
+                        #Spring
+                    </div>
                     <h4>Database</h4>
-                    <h4>Deployment</h4>
+                    <div class="tag">
+                        #MySQL
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,6 +208,7 @@ export default {
             allImages: {
                 bokmark: ["/bokmark/1.png", "/bokmark/2.png", "/bokmark/3.png", "/bokmark/4.png", "/bokmark/5.png", "/bokmark/6.png"],
                 cafe: ["/cafe/1.png", "/cafe/2.png", "/cafe/3.png", "/cafe/4.png"],
+                recipe: ["/recipe/1.png"]
             },
         };
     },
