@@ -55,7 +55,10 @@
         <div id="4" class="container project">
             <h1>#PROJECTS</h1>
             <br />
-            <img src="/bokmark/1.png" @click="openDetail1()" />
+            <div class="image-grid">
+                <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
+                <img src="/cafe/1.png" @click="openDetail('cafe')" />
+            </div>
         </div>
         <div id="5" class="container award">
             <h1>#AWARD</h1>
@@ -64,10 +67,10 @@
             <img src="/award2.png" @click="openModal('/award2.png')" />
         </div>
         <div v-if="showModal" class="image-modal" @click="closeModal">
-            <img :src="currentAward" alt="Full size award image" />
+            <img :src="currentAward" alt="" />
         </div>
 
-        <div v-if="showDetail1" class="detail-modal" @click="closeDetail">
+        <div v-if="showDetail" class="detail-modal" @click="closeDetail">
             <div class="container" @click.stop>
                 <img :src="currentImage" alt="" />
                 <p class="controller">
@@ -75,12 +78,30 @@
                     <span @click="nextImage"><i class="fa fa-arrow-right" /></span>
                 </p>
                 <p class="pagination">
-                    <span v-for="(image, index) in images" :key="index" @click="jumpToImage(index)"
+                    <span v-for="(image, index) in currentImages" :key="index" @click="jumpToImage(index)"
                         :class="{ 'active-button': currentImageIndex === index }">
                     </span>
                 </p>
-
-                <h4>레시피 공유</h4>
+                <div v-if="currentDetailType === 'bokmark'">
+                    <h3>bokmark</h3>
+                    <h4>주요 기능</h4>
+                    <h4>GitHub</h4>
+                    <h4>URL</h4>
+                    <h4>Front-end</h4>
+                    <h4>Back-end</h4>
+                    <h4>Database</h4>
+                    <h4>Deployment</h4>
+                </div>
+                <div v-if="currentDetailType === 'cafe'">
+                    <h3>카페 메뉴 관리</h3>
+                    <h4>주요 기능</h4>
+                    <h4>GitHub</h4>
+                    <h4>URL</h4>
+                    <h4>Front-end</h4>
+                    <h4>Back-end</h4>
+                    <h4>Database</h4>
+                    <h4>Deployment</h4>
+                </div>
             </div>
         </div>
 
@@ -95,16 +116,24 @@ export default {
     data() {
         return {
             showModal: false,
-            showDetail1: false,
+            showDetail: false,
+            activeProject: null,
             currentAward: '',
             currentTooltip: null,
+            currentDetailType: null,
             currentImageIndex: 0,
-            images: ["/bokmark/1.png", "/bokmark/2.png"],
+            allImages: {
+                bokmark: ["/bokmark/1.png", "/bokmark/2.png", "/bokmark/3.png", "/bokmark/4.png", "/bokmark/5.png", "/bokmark/6.png"],
+                cafe: ["/cafe/1.png", "/cafe/2.png", "/cafe/3.png", "/cafe/4.png"],
+            },
         };
     },
     computed: {
+        currentImages() {
+            return this.allImages[this.currentDetailType] || [];
+        },
         currentImage() {
-            return this.images[this.currentImageIndex];
+            return this.currentImages[this.currentImageIndex] || '';
         },
     },
     methods: {
@@ -112,14 +141,8 @@ export default {
             this.currentAward = imageUrl;
             this.showModal = true;
         },
-        openDetail1() {
-            this.showDetail1 = true;
-        },
         closeModal() {
             this.showModal = false;
-        },
-        closeDetail() {
-            this.showDetail1 = false;
         },
         showTooltip(tooltipText) {
             this.currentTooltip = tooltipText;
@@ -131,11 +154,11 @@ export default {
             if (this.currentImageIndex > 0) {
                 this.currentImageIndex--;
             } else {
-                this.currentImageIndex = this.images.length - 1;
+                this.currentImageIndex = this.currentImages.length - 1;
             }
         },
         nextImage() {
-            if (this.currentImageIndex < this.images.length - 1) {
+            if (this.currentImageIndex < this.currentImages.length - 1) {
                 this.currentImageIndex++;
             } else {
                 this.currentImageIndex = 0;
@@ -143,6 +166,15 @@ export default {
         },
         jumpToImage(index) {
             this.currentImageIndex = index;
+        },
+        openDetail(type) {
+            this.currentDetailType = type;
+            this.showDetail = true;
+        },
+        closeDetail() {
+            this.showDetail = false;
+            this.currentDetailType = null;
+            this.currentImageIndex = 0;
         },
     },
     mounted() {
@@ -200,32 +232,29 @@ export default {
 }
 
 .detail-modal .container {
-    display: grid;
-    justify-items: center;
-    align-items: center;
     width: 90%;
     max-width: 750px;
     height: 70%;
+    overflow: auto;
 }
 
 .detail-modal .container img {
     width: 100%;
-    height: 90%;
+    height: 350px;
     object-fit: cover;
 }
 
 .controller {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: -200px;
     left: 50%;
-    transform: translate(-50%, calc(-50% - 90px));
-    width: 80%;
+    transform: translate(-50%, 0);
+    width: 100%;
     max-width: 670px;
     display: flex;
     justify-content: space-between;
     z-index: 10;
 }
-
 
 .controller span {
     cursor: pointer;
@@ -236,10 +265,22 @@ export default {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.image-grid img {
+    width: calc(100% - 20px) !important;
+    height: 80%;
+    object-fit: cover;
+}
+
 .pagination {
     overflow: hidden;
     position: relative;
-    bottom: 10px;
+    bottom: 50px;
     width: 100%;
     text-align: center;
     z-index: 10;
@@ -314,6 +355,7 @@ export default {
 h4 {
     margin: 14px 0 6px;
     color: var(--point-color2);
+    text-align: left;
 }
 
 .tag {
