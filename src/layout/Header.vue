@@ -2,11 +2,12 @@
     <div class="header">
         @suhye0n's Portfolio
         <div class="header-btn">
-            <a>ABOUT ME</a>
-            <a>SKILLS</a>
-            <a>ARCHIVING</a>
-            <a>PROJECTS</a>
-            <a>CAREER</a>
+            <a href="#1">ABOUT ME</a>
+            <a href="#2">SKILLS</a>
+            <a href="#3">ARCHIVING</a>
+            <a href="#4">PROJECTS</a>
+            <a href="#5">AWARD</a>
+            <a href="#6">CAREER</a>
         </div>
     </div>
 </template>
