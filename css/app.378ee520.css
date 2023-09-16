@@ -1,1 +1,0 @@
-.main{width:90%;max-width:var(--content-width);margin:auto}.image-modal{position:fixed;top:0;left:0;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;background-color:rgba(0,0,0,.8);z-index:1000}.image-modal img{max-width:90%;max-height:90%;border:5px solid #fff}
