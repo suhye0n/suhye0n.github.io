@@ -10,7 +10,6 @@
     --transition: all 0.4s;
     --border-radius: 5px;
     --container-padding: 20px;
-    scroll-behavior: smooth;
 }
 
 * {
@@ -20,8 +19,6 @@
     font-size: inherit;
     list-style: none;
     box-sizing: border-box;
-    text-decoration-line: none;
-    color: var(--font-color);
 }
 
 html {
