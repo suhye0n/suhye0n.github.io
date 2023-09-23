@@ -783,13 +783,11 @@ body {
 }
 
 .activity {
-    width: 80%;
-    margin: 0 10%;
-    height: 140%;
 }
 
 .activity img {
     border-radius: 50%;
+    height: 100%;
 }
 
 @media (max-width: 768px) {
