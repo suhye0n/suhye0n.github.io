@@ -58,6 +58,13 @@ export default App;
 </script>
 
 <style>
+@font-face {
+    font-family: 'GangwonState';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/GangwonState.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --point-color: #c954f830;
     --point-color2: #3e1a4b60;
@@ -78,12 +85,14 @@ export default App;
 }
 
 * {
+    font-family: 'GangwonState';
     margin: 0;
     padding: 0;
     border: 0;
     font-size: inherit;
     list-style: none;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 html {
@@ -121,10 +130,6 @@ body {
 
 .scale-down {
     object-fit: scale-down !important;
-}
-
-* {
-    scroll-behavior: smooth;
 }
 
 a {
