@@ -62,6 +62,24 @@
                         <i class="fa fa-link" /> github.com/suhye0n
                     </a>
                 </div>
+                <h4>Programmers</h4>
+                <div class="tag">
+                    <a target="_blank" href="https://career.programmers.co.kr/pr/suhye0n">
+                        <i class="fa fa-link" /> career.programmers.co.kr/pr/suhye0n
+                    </a>
+                </div>
+                <h4>BOJ</h4>
+                <div class="tag">
+                    <a target="_blank" href="https://www.acmicpc.net/user/claphye0n">
+                        <i class="fa fa-link" /> acmicpc.net/user/claphye0n
+                    </a>
+                </div>
+                <h4>velog</h4>
+                <div class="tag">
+                    <a target="_blank" href="https://velog.io/@devl0g">
+                        <i class="fa fa-link" /> velog.io/@devl0g
+                    </a>
+                </div>
             </div>
         </div>
 
