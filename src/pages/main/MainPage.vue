@@ -129,7 +129,7 @@
             <div id="8" class="container">
                 <h1>#ACTIVITY</h1>
                 <div class="br" />
-                <div class="image-grid">
+                <div class="image-grid activity">
                     <img class="scale-down" src="/activity/semtle1.png" @click="openDetail('semtle')" />
                     <img class="scale-down" src="/activity/kite1.png" @click="openDetail('kite')" />
                 </div>
@@ -776,15 +776,15 @@ body {
 
 @media (max-width: 768px) {
     .image-grid {
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
     }
 
     .award-grid {
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
+    }
+
+    .activity {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 </style>
