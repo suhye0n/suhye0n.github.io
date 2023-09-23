@@ -8,7 +8,7 @@
                 <ul>
                     <li><i class="fa fa-user" /> 박수현</li>
                     <li><i class="fa fa-calendar" /> 01.11.21</li>
-                    <li><i class="fa fa-envelope" /> claphyeon@kakao.com</li>
+                    <li><i class="fa fa-envelope" /> <a href="mailto:claphyeon@kakao.com">claphyeon@kakao.com</a></li>
                     <li><i class="fa fa-pen" /> 금오공과대학교 컴퓨터공학과</li>
                 </ul>
             </div>
@@ -780,6 +780,16 @@ body {
     border-width: 5px;
     border-style: solid;
     border-color: #000 transparent transparent transparent;
+}
+
+.activity {
+    width: 80%;
+    margin: 0 10%;
+    height: 140%;
+}
+
+.activity img {
+    border-radius: 50%;
 }
 
 @media (max-width: 768px) {
