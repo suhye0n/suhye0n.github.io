@@ -783,9 +783,7 @@ body {
 }
 
 .activity img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
+    box-shadow: none;
 }
 
 @media (max-width: 768px) {
@@ -799,11 +797,6 @@ body {
 
     .activity {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .activity img {
-        border-radius: 50%;
-        height: 80%;
     }
 }
 </style>
