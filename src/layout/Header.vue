@@ -1,7 +1,8 @@
 <template>
     <div class="header">
         <a href="#">@suhye0n's Portfolio</a>
-        <div class="header-btn">
+        <div @click="toggleSidebar" class="sidebar-toggler"><i class="fa fa-bars" /></div>
+        <div class="header-btn" :class="{ active: showSidebar }">
             <a href="#1">ABOUT ME</a>
             <a href="#2">SKILLS</a>
             <a href="#3">ARCHIVING</a>
@@ -10,8 +11,8 @@
             <a href="#6">VOLUNTEER</a>
             <a href="#7">EDUCATION</a>
             <a href="#8">ACTIVITY</a>
-            <!--a href="#6">CAREER</a-->
         </div>
+        <div class="overlay" v-if="showSidebar" @click="toggleSidebar"></div>
     </div>
 </template>
 
@@ -19,8 +20,7 @@
 const App = {
     data: () => {
         return {
-            testNumber: 1,
-            testString: '문자열'
+            showSidebar: false
         }
     },
     methods: {
@@ -43,6 +43,10 @@ const App = {
                     });
                 });
             });
+        },
+
+        toggleSidebar() {
+            this.showSidebar = !this.showSidebar;
         }
     },
     mounted() {
@@ -54,6 +58,71 @@ export default App;
 </script>
 
 <style>
+:root {
+    --point-color: #c954f830;
+    --point-color2: #3e1a4b60;
+    --point-color3: #fafbff;
+    --point-color4: #fafffa;
+    --point-color5: #fffffa;
+    --point-color6: #fefaff;
+    --point-color7: #fffcfa;
+    --shadow-color: #eae5ec;
+    --background-color1: #f8f4fa;
+    --background-color2: #fefaff;
+    --font-size: 16px;
+    --font-color: #726f69;
+    --content-width: 950px;
+    --transition: all 0.4s;
+    --border-radius: 10px;
+    --container-padding: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    display: block;
+}
+
+body {
+    padding-top: 50px;
+    background: var(--background-color1);
+    font-size: var(--font-size);
+    line-height: 1.8;
+    word-wrap: break-word;
+    color: var(--font-color);
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+}
+
+.pointer {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pointer:hover {
+    cursor: pointer;
+	opacity: .8;
+}
+
+.br {
+    margin: 40px 0;
+}
+
+.scale-down {
+    object-fit: scale-down !important;
+}
+
 * {
     scroll-behavior: smooth;
 }
@@ -82,5 +151,51 @@ a {
     margin-left: auto;
     gap: 20px;
     font-size: 14px;
+}
+
+.sidebar-toggler {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, .4);
+        z-index: 997;
+    }
+
+    .header-btn {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 100px 20px 20px;
+        background-color: var(--background-color2);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease-in-out;
+        z-index: 998;
+    }
+
+    .header-btn.active {
+        right: 0;
+    }
+
+    .header-btn a {
+        margin-bottom: 15px;
+    }
+
+    .sidebar-toggler {
+        display: inline-block;
+        margin-left: auto;
+        cursor: pointer;
+    }
 }
 </style>

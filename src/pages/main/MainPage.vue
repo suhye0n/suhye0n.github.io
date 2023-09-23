@@ -430,6 +430,71 @@ export default {
 </script>
 
 <style>
+:root {
+    --point-color: #c954f830;
+    --point-color2: #3e1a4b60;
+    --point-color3: #fafbff;
+    --point-color4: #fafffa;
+    --point-color5: #fffffa;
+    --point-color6: #fefaff;
+    --point-color7: #fffcfa;
+    --shadow-color: #eae5ec;
+    --background-color1: #f8f4fa;
+    --background-color2: #fefaff;
+    --font-size: 16px;
+    --font-color: #726f69;
+    --content-width: 950px;
+    --transition: all 0.4s;
+    --border-radius: 10px;
+    --container-padding: 40px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    display: block;
+}
+
+body {
+    padding-top: 50px;
+    background: var(--background-color1);
+    font-size: var(--font-size);
+    line-height: 1.8;
+    word-wrap: break-word;
+    color: var(--font-color);
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+}
+
+.pointer {
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.pointer:hover {
+    cursor: pointer;
+	opacity: .8;
+}
+
+.br {
+    margin: 40px 0;
+}
+
+.scale-down {
+    object-fit: scale-down !important;
+}
+
 .main {}
 
 .image-modal {
@@ -496,8 +561,9 @@ export default {
 
 .controller span {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, .6);
-    padding: 12px 18px;
+    background-color: var(--point-color3);
+    opacity: .7;
+    padding: 12px 19px;
     margin: 0 30px;
     border-radius: 50%;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -539,14 +605,14 @@ export default {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background: gray;
+    background-color: var(--point-color);
     margin: 0 5px;
     cursor: pointer;
     border-radius: 50%;
 }
 
 .pagination span.active-button {
-    background: white;
+    background: var(--point-color2);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -597,6 +663,17 @@ export default {
     box-shadow: 0px 2px 4px 0px var(--shadow-color);
 }
 
+.container h3 {
+    font-size: 20px;
+}
+
+.container h4 {
+    font-size: 17px;
+    margin: 14px 0 6px;
+    color: var(--point-color2);
+    text-align: left;
+}
+
 .container img {
     width: 200px;
 }
@@ -635,7 +712,7 @@ export default {
 
 .project img {
     width: 40%;
-    height: 70%;
+    height: 82%;
     object-fit: cover;
 }
 
@@ -648,24 +725,22 @@ export default {
     margin-right: 5px;
 }
 
-h4 {
-    margin: 14px 0 6px;
-    color: var(--point-color2);
-    text-align: left;
-}
-
 .tag {
     position: relative;
-    display: inline;
+    width: auto;
+    height: auto;
+    display: inline-block;
     border-radius: calc(var(--border-radius) + 15px);
     background-color: #f0ede6;
     padding: 6px 14px;
     font-weight: 400;
     color: var(--font-color);
     box-shadow: inset 3px 3px 6px var(--shadow-color), 2px 2px 4px var(--shadow-color);
-    margin-right: 10px;
+    margin: 0 10px 10px 0;
     cursor: pointer;
     transition: var(--transition);
+    white-space: normal;
+    overflow-wrap: break-word;
 }
 
 .tag:hover {
@@ -697,5 +772,19 @@ h4 {
     border-width: 5px;
     border-style: solid;
     border-color: #000 transparent transparent transparent;
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+    .award-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
 }
 </style>
