@@ -1,80 +1,146 @@
 <template>
     <div class="main">
-        <div id="1" class="container about">
-            <h1>#ABOUT ME</h1>
-            <ul>
-                <li><i class="fa fa-user" /> 박수현</li>
-                <li><i class="fa fa-calendar" /> 01.11.21</li>
-                <li><i class="fa fa-envelope" /> claphyeon@kakao.com</li>
-                <li><i class="fa fa-pen" /> 금오공과대학교 컴퓨터공학과</li>
-            </ul>
+        <div class="about">
+            <div id="1" class="container">
+                <h1>#ABOUT ME</h1>
+                <div class="br" />
+                <img class="profile" src="/profile.jpg" />
+                <ul>
+                    <li><i class="fa fa-user" /> 박수현</li>
+                    <li><i class="fa fa-calendar" /> 01.11.21</li>
+                    <li><i class="fa fa-envelope" /> claphyeon@kakao.com</li>
+                    <li><i class="fa fa-pen" /> 금오공과대학교 컴퓨터공학과</li>
+                </ul>
+            </div>
         </div>
-        <div id="2" class="container skills">
-            <h1>#SKILLS</h1>
-            <h4>Frontent</h4>
-            <div class="tag">
-                #HTML5 <i class="fab fa-html5" />
-            </div>
-            <div class="tag">
-                #CSS3 <i class="fab fa-css3" />
-            </div>
-            <div class="tag">
-                #JavaScript <i class="fab fa-js-square" />
-            </div>
-            <div class="tag">
-                #React <i class="fab fa-react" />
-            </div>
-            <div class="tag">
-                #Bootstrap <i class="fab fa-bootstrap" />
-            </div>
 
-            <h4>Version Control</h4>
-            <div class="tag">
-                #git <i class="fab fa-git" />
-            </div>
-            <div class="tag">
-                #GitHub <i class="fab fa-github" />
-            </div>
+        <div class="skills">
+            <div id="2" class="container">
+                <h1>#SKILLS</h1>
+                <div class="br" />
+                <h4>Frontent</h4>
+                <div class="tag">
+                    #HTML5 <i class="fab fa-html5" />
+                </div>
+                <div class="tag">
+                    #CSS3 <i class="fab fa-css3" />
+                </div>
+                <div class="tag">
+                    #JavaScript <i class="fab fa-js-square" />
+                </div>
+                <div class="tag">
+                    #React <i class="fab fa-react" />
+                </div>
+                <div class="tag">
+                    #Bootstrap <i class="fab fa-bootstrap" />
+                </div>
 
-            <h4>Communication</h4>
-            <div class="tag">
-                #Figma <i class="fab fa-figma" />
-            </div>
+                <h4>Version Control</h4>
+                <div class="tag">
+                    #git <i class="fab fa-git" />
+                </div>
+                <div class="tag">
+                    #GitHub <i class="fab fa-github" />
+                </div>
 
-            <!--h4>Certificate</h4-->
-        </div>
-        <div id="3" class="container">
-            <h1>#ARCHIVING</h1>
-            <h4>GitHub</h4>
-            <div class="tag">
-                <a href="https://github.com/suhye0n">
-                    <i class="fa fa-link" /> github.com/suhye0n
-                </a>
+                <h4>Communication</h4>
+                <div class="tag">
+                    #Figma <i class="fab fa-figma" />
+                </div>
+
+                <!--h4>Certificate</h4-->
             </div>
         </div>
-        <div id="4" class="container project">
-            <h1>#PROJECTS</h1>
-            <br />
-            <div class="image-grid">
-                <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
-                <img src="/cafe/1.png" @click="openDetail('cafe')" />
-                <img src="/recipe/1.png" @click="openDetail('recipe')" />
+
+        <div class="archiving">
+            <div id="3" class="container">
+                <h1>#ARCHIVING</h1>
+                <div class="br" />
+                <h4>GitHub</h4>
+                <div class="tag">
+                    <a href="https://github.com/suhye0n">
+                        <i class="fa fa-link" /> github.com/suhye0n
+                    </a>
+                </div>
             </div>
         </div>
-        <div id="5" class="container award">
-            <h1>#AWARD</h1>
-            <br />
-            <div class="award-grid">
-                <img src="/award1.png" @click="openModal('/award1.png')" />
-                <img src="/award2.png" @click="openModal('/award2.png')" />
+
+        <div class="project">
+            <div id="4" class="container">
+                <h1>#PROJECTS</h1>
+                <div class="br" />
+                <div class="image-grid">
+                    <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
+                    <img src="/cafe/1.png" @click="openDetail('cafe')" />
+                    <img src="/recipe/1.png" @click="openDetail('recipe')" />
+                </div>
             </div>
         </div>
+
+        <div class="award">
+            <div id="5" class="container">
+                <h1>#AWARD</h1>
+                <div class="br" />
+                <div class="award-grid">
+                    <img src="/award1.png" @click="openModal('/award1.png')" />
+                    <img src="/award2.png" @click="openModal('/award2.png')" />
+                </div>
+            </div>
+            <div v-if="showModal" class="image-modal" @click="closeModal">
+                <img :src="currentAward" alt="" />
+            </div>
+        </div>
+
+        <div class="volunteer">
+            <div id="6" class="container">
+                <h1>#VOLUNTEER</h1>
+                <div class="br" />
+                <div class="pointer box" @click="openModal('/volunteer/230422.png')">
+                    <h4>대학생 과학교육봉사단 "과학의달" 행사 지원 활동</h4>
+                    <ul>
+                        <li>- 인증기관: DOVOL</li>
+                        <li>- 모집기관: 구미과학관</li>
+                        <li>- 자원봉사유형: 학습지도 교육</li>
+                        <li>- 활동구분: 오프라인</li>
+                        <li>- 봉사날짜: 2023.04.22</li>
+                        <li>- 봉사시간: 12:00~17:00 (5시간 0분)</li>
+                        <li>- 활동내역: 대학생 과학교육봉사단 "과학의달" 행사 지원 활동</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="award">
+            <div id="7" class="container">
+                <h1>#EDUCATION</h1>
+                <div class="br" />
+                <div class="award-grid">
+                    <img src="/edu/200207.png" @click="openModal('/edu/200207.png')" />
+                    <img src="/edu/200302.png" @click="openModal('/edu/200302.png')" />
+                    <img src="/edu/200310.png" @click="openModal('/edu/200310.png')" />
+                    <img src="/edu/200308.png" @click="openModal('/edu/200308.png')" />
+                    <img src="/edu/200426.png" @click="openModal('/edu/200426.png')" />
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div id="8" class="container">
+                <h1>#ACTIVITY</h1>
+                <div class="br" />
+                <div class="image-grid">
+                    <img src="/activity/semtle1.png" @click="openDetail('semtle')" />
+                    <img src="/activity/kite1.png" @click="openDetail('kite')" />
+                </div>
+            </div>
+        </div>
+
         <div v-if="showModal" class="image-modal" @click="closeModal">
             <img :src="currentAward" alt="" />
         </div>
 
         <div v-if="showDetail" class="detail-modal" @click="closeDetail">
-            <div class="container" @click.stop>
+            <div class="container shadow" @click.stop>
                 <img :src="currentImage" alt="" />
                 <p class="controller">
                     <span @click="prevImage"><i class="fa fa-arrow-left" /></span>
@@ -187,6 +253,39 @@
                         #MySQL
                     </div>
                 </div>
+
+                <div v-if="currentDetailType === 'semtle'">
+                    <h3>셈틀꾼</h3>
+                    <h4>활동 구분</h4>
+                    <div class="tag">
+                        #교내동아리활동
+                    </div>
+                    <h4>활동기간</h4>
+                    <div class="tag">
+                        #2022.03~2022.12
+                    </div>
+                    <h4>주요활동 내용</h4>
+                    <ul>
+                        <li>금오공과대학교 컴퓨터공학과 학술동아리 셈틀꾼에서 총무를 맡아 재정 관리 및 운영에 관한 일들을 주도적으로 수행</li>
+                    </ul>
+                </div>
+
+                <div v-if="currentDetailType === 'kite'">
+                    <h3>KITE</h3>
+                    <h4>활동 구분</h4>
+                    <div class="tag">
+                        #교내동아리활동
+                    </div>
+                    <h4>활동기간</h4>
+                    <div class="tag">
+                        #2022.03~2022.12
+                    </div>
+                    <h4>주요활동 내용</h4>
+                    <ul>
+                        <li>금오공과대학교 영어동아리 KITE에서 부회장을 맡아 부원들의 영어 능력 향상을 위한 활동 기획 및 실행</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
 
@@ -210,7 +309,9 @@ export default {
             allImages: {
                 bokmark: ["/bokmark/1.png", "/bokmark/2.png", "/bokmark/3.png", "/bokmark/4.png", "/bokmark/5.png", "/bokmark/6.png"],
                 cafe: ["/cafe/1.png", "/cafe/2.png", "/cafe/3.png", "/cafe/4.png"],
-                recipe: ["/recipe/1.png"]
+                recipe: ["/recipe/1.png"],
+                semtle: ["/activity/semtle2.jpg", "/activity/semtle3.jpg"],
+                kite: ["/activity/kite2.jpg", "/activity/kite3.jpg", "/activity/kite4.jpg", "/activity/kite5.jpg", "/activity/kite6.jpg"]
             },
         };
     },
@@ -275,11 +376,7 @@ export default {
 </script>
 
 <style>
-.main {
-    width: 90%;
-    max-width: var(--content-width);
-    margin: auto;
-}
+.main {}
 
 .image-modal {
     position: fixed;
@@ -360,7 +457,7 @@ export default {
 .image-grid img {
     width: calc(100% - 20px) !important;
     height: 80%;
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .award-grid {
@@ -399,13 +496,39 @@ export default {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.about {
+    background: var(--point-color3);
+}
+
+.skills {
+    background: var(--point-color4);
+}
+
+.archiving {
+    background: var(--point-color5);
+}
+
+.project {
+    background: var(--point-color6);
+}
+
+.award {
+    background: var(--point-color7);
+}
+
 .container {
-    background: var(--header-background-color);
-    box-shadow: 0px 2px 4px 0px var(--shadow-color);
+    width: 90%;
+    max-width: var(--content-width);
+    margin: auto;
     z-index: 2;
     border-radius: var(--border-radius);
+    padding: 160px var(--container-padding);
+}
+
+.shadow {
+    background: var(--background-color1);
+    box-shadow: 0px 2px 4px 0px var(--shadow-color);
     padding: var(--container-padding);
-    margin: 30px;
 }
 
 .container h1 {
@@ -428,6 +551,14 @@ export default {
     text-align: center;
 }
 
+.profile {
+    display: block;
+    border-radius: 50%;
+    margin: 30px auto;
+    box-shadow: 8px 6px 0px var(--shadow-color);
+    transition: var(--transition);
+}
+
 .award img,
 .project img {
     cursor: pointer;
@@ -435,6 +566,17 @@ export default {
     border-radius: var(--border-radius);
     box-shadow: 8px 6px 0px var(--shadow-color);
     transition: var(--transition);
+    max-height: 400px;
+}
+
+.box {
+    cursor: pointer;
+    margin: 30px 12px;
+    padding: 17px 34px;
+    border-radius: var(--border-radius);
+    box-shadow: 8px 6px 0px var(--shadow-color);
+    transition: var(--transition);
+    background-color: #fff;
 }
 
 .project img {

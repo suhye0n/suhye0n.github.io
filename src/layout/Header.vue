@@ -7,6 +7,9 @@
             <a href="#3">ARCHIVING</a>
             <a href="#4">PROJECTS</a>
             <a href="#5">AWARD</a>
+            <a href="#6">VOLUNTEER</a>
+            <a href="#7">EDUCATION</a>
+            <a href="#8">ACTIVITY</a>
             <!--a href="#6">CAREER</a-->
         </div>
     </div>
@@ -70,7 +73,7 @@ a {
     grid-area: header;
     width: 100%;
     padding: 11px 40px;
-    background: var(--header-background-color);
+    background: var(--background-color2);
     box-shadow: 0px 2px 4px 0px var(--shadow-color);
 }
 

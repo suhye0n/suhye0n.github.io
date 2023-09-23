@@ -1,9 +1,14 @@
 :root {
     --point-color: #c954f830;
-    --point-color2: #c954f860;
+    --point-color2: #3e1a4b60;
+    --point-color3: #fafbff;
+    --point-color4: #fafffa;
+    --point-color5: #fffffa;
+    --point-color6: #fefaff;
+    --point-color7: #fffcfa;
     --shadow-color: #eae5ec;
-    --background-color: #f8f4fa;
-    --header-background-color: #fefaff;
+    --background-color1: #f8f4fa;
+    --background-color2: #fefaff;
     --font-size: 16px;
     --font-color: #726f69;
     --content-width: 950px;
@@ -27,7 +32,7 @@ html {
 
 body {
     padding-top: 50px;
-    background: var(--background-color);
+    background: var(--background-color1);
     font-size: var(--font-size);
     line-height: 1.8;
     word-wrap: break-word;
@@ -37,19 +42,19 @@ body {
 }
 
 ::-webkit-scrollbar {
-	width: 9px;
+	width: 0;
 }
 
-::-webkit-scrollbar-track {
-    border-radius: var(--border-radius);
-	background-color: var(--point-color);
-}
-
-::-webkit-scrollbar-thumb {
-	background-color: var(--point-color2);
+.pointer {
+    cursor: pointer;
     transition: var(--transition);
 }
 
-::-webkit-scrollbar-thumb:hover {
+.pointer:hover {
+    cursor: pointer;
 	opacity: .8;
+}
+
+.br {
+    margin: 40px 0;
 }
