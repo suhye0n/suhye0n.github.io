@@ -782,11 +782,9 @@ body {
     border-color: #000 transparent transparent transparent;
 }
 
-.activity {
-}
-
 .activity img {
     border-radius: 50%;
+    width: 100%;
     height: 100%;
 }
 
@@ -801,6 +799,11 @@ body {
 
     .activity {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .activity img {
+        border-radius: 50%;
+        height: 80%;
     }
 }
 </style>
