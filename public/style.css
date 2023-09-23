@@ -58,3 +58,7 @@ body {
 .br {
     margin: 40px 0;
 }
+
+.scale-down {
+    object-fit: scale-down !important;
+}

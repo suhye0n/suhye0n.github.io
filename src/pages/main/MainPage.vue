@@ -4,7 +4,7 @@
             <div id="1" class="container">
                 <h1>#ABOUT ME</h1>
                 <div class="br" />
-                <img class="profile" src="/profile.jpg" />
+                <img class="profile pointer" src="/profile.jpg" />
                 <ul>
                     <li><i class="fa fa-user" /> 박수현</li>
                     <li><i class="fa fa-calendar" /> 01.11.21</li>
@@ -58,7 +58,7 @@
                 <div class="br" />
                 <h4>GitHub</h4>
                 <div class="tag">
-                    <a href="https://github.com/suhye0n">
+                    <a target="_blank" href="https://github.com/suhye0n">
                         <i class="fa fa-link" /> github.com/suhye0n
                     </a>
                 </div>
@@ -70,9 +70,10 @@
                 <h1>#PROJECTS</h1>
                 <div class="br" />
                 <div class="image-grid">
+                    <img src="/semtle/1.png" @click="openDetail('semtlekkun')" />
+                    <img src="/card/1.png" @click="openDetail('card')" />
                     <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
                     <img src="/cafe/1.png" @click="openDetail('cafe')" />
-                    <img src="/recipe/1.png" @click="openDetail('recipe')" />
                 </div>
             </div>
         </div>
@@ -129,8 +130,8 @@
                 <h1>#ACTIVITY</h1>
                 <div class="br" />
                 <div class="image-grid">
-                    <img src="/activity/semtle1.png" @click="openDetail('semtle')" />
-                    <img src="/activity/kite1.png" @click="openDetail('kite')" />
+                    <img class="scale-down" src="/activity/semtle1.png" @click="openDetail('semtle')" />
+                    <img class="scale-down" src="/activity/kite1.png" @click="openDetail('kite')" />
                 </div>
             </div>
         </div>
@@ -161,15 +162,22 @@
                     </ul>
                     <h4>GitHub</h4>
                     <div class="tag">
-                        <a href="https://github.com/suhye0n/bokmark">
+                        <a target="_blank" href="https://github.com/suhye0n/bokmark">
                             <i class="fa fa-link" /> github.com/suhye0n/bokmark
                         </a>
                     </div>
                     <h4>URL</h4>
                     <div class="tag">
-                        <a href="https://b0kmark.web.app/">
+                        <a target="_blank" href="https://b0kmark.web.app/">
                             <i class="fa fa-link" /> b0kmark.web.app
                         </a>
+                    </div>
+                    <h4>Part</h4>
+                    <div class="tag">
+                        #Front-end
+                    </div>
+                    <div class="tag">
+                        #Back-end
                     </div>
                     <h4>Front-end</h4>
                     <div class="tag">
@@ -191,40 +199,77 @@
                         #Firebase
                     </div>
                 </div>
-                <div v-if="currentDetailType === 'recipe'">
-                    <h3>레시피 공유</h3>
+                <div v-if="currentDetailType === 'semtlekkun'">
+                    <h3>셈틀꾼 공식 홈페이지</h3>
                     <h4>개요</h4>
                     <ul>
-                        <li>- 음식 레시피를 공유할 수 있는 웹 플랫폼을 개발하였습니다.</li>
-                        <li>- 사용자는 레시피를 업로드하고, 다른 사용자가 업로드한 레시피를 검색하고 댓글을 달 수 있습니다.</li>
+                        <li>- 금오공과대학교 컴퓨터공학과 학술동아리 셈틀꾼의 회원들이 사용할 수 있는 공식 홈페이지입니다.</li>
+                        <li>- 프로젝트 공고, 게시, 질문 사이트 등을 구현했고, 관리자 페이지를 통한 인원 관리를 구현했습니다.</li>
                     </ul>
                     <h4>GitHub</h4>
                     <div class="tag">
-                        <a href="https://github.com/suhye0n/recipe-share">
-                            <i class="fa fa-link" /> github.com/suhye0n/recipe-share
+                        <a target="_blank" href="https://github.com/semtlekkun">
+                            <i class="fa fa-link" /> github.com/semtlekkun
+                        </a>
+                    </div>
+                    <h4>Part</h4>
+                    <div class="tag">
+                        #Front-end
+                    </div>
+                    <h4>Front-end</h4>
+                    <div class="tag">
+                        #Vue.js <i class="fab fa-vuejs" />
+                    </div>
+                    <h4>Back-end</h4>
+                    <div class="tag">
+                        #Node.js <i class="fab fa-node" />
+                    </div>
+                    <div class="tag">
+                        #Express
+                    </div>
+                    <h4>Database</h4>
+                    <div class="tag">
+                        #Mongoose
+                    </div>
+                    <h4>Deployment</h4>
+                    <div class="tag">
+                        #ipTIME
+                    </div>
+                </div>
+                <div v-if="currentDetailType === 'card'">
+                    <h3>아동급식카드 가맹점 안내 서비스</h3>
+                    <h4>개요</h4>
+                    <ul>
+                        <li>- 아동급식카드 가맹점 정보 안내 홈페이지입니다.</li>
+                        <li>- 결식 아동들이 보다 다양한 가맹점을 선택할 수 있도록.</li>
+                    </ul>
+                    <h4>GitHub</h4>
+                    <div class="tag">
+                        <a target="_blank" href="https://github.com/KITtowel">
+                            <i class="fa fa-link" /> github.com/KITtowel
                         </a>
                     </div>
                     <h4>URL</h4>
                     <div class="tag">
-                        <a href="https://recipe-share-0.web.app/">
-                            <i class="fa fa-link" /> recipe-share-0.web.app/
+                        <a target="_blank" href="https://forunderwater.life/">
+                            <i class="fa fa-link" /> forunderwater.life
                         </a>
                     </div>
-                    <h4>Front-end</h4>
+                    <h4>Part</h4>
                     <div class="tag">
-                        #React <i class="fab fa-react" />
+                        #Front-end
                     </div>
                     <h4>Back-end</h4>
                     <div class="tag">
-                        #Firebase Authentication
+                        #Django
                     </div>
                     <h4>Database</h4>
                     <div class="tag">
-                        #Firebase Database
+                        #SQLite
                     </div>
                     <h4>Deployment</h4>
                     <div class="tag">
-                        #Firebase
+                        #Amazon Web Services (AWS) <i class="fab fa-aws" />
                     </div>
                 </div>
                 <div v-if="currentDetailType === 'cafe'">
@@ -236,9 +281,16 @@
                     </ul>
                     <h4>GitHub</h4>
                     <div class="tag">
-                        <a href="https://github.com/suhye0n/cafe-menu">
+                        <a target="_blank" href="https://github.com/suhye0n/cafe-menu">
                             <i class="fa fa-link" /> github.com/suhye0n/cafe-menu
                         </a>
+                    </div>
+                    <h4>Part</h4>
+                    <div class="tag">
+                        #Front-end
+                    </div>
+                    <div class="tag">
+                        #Back-end
                     </div>
                     <h4>Front-end</h4>
                     <div class="tag">
@@ -311,6 +363,8 @@ export default {
                 cafe: ["/cafe/1.png", "/cafe/2.png", "/cafe/3.png", "/cafe/4.png"],
                 recipe: ["/recipe/1.png"],
                 semtle: ["/activity/semtle2.jpg", "/activity/semtle3.jpg"],
+                card: ["/card/1.png", "/card/2.png", "/card/3.png", "/card/4.png", "/card/5.png", "/card/6.png"],
+                semtlekkun: ["/semtle/1.png", "/semtle/2.png", "/semtle/3.png", "/semtle/4.png", "/semtle/5.png", "/semtle/6.png", "/semtle/7.png", "/semtle/8.png", "/semtle/9.png", "/semtle/10.png"],
                 kite: ["/activity/kite2.jpg", "/activity/kite3.jpg", "/activity/kite4.jpg", "/activity/kite5.jpg", "/activity/kite6.jpg"]
             },
         };
@@ -387,14 +441,15 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, .4);
     z-index: 1000;
 }
 
 .image-modal img {
     max-width: 90%;
     max-height: 90%;
-    border: 5px solid white;
+    border-radius: var(--border-radius);
+    box-shadow: 8px 6px 0px var(--shadow-color);
 }
 
 .detail-modal {
@@ -457,7 +512,6 @@ export default {
 .image-grid img {
     width: calc(100% - 20px) !important;
     height: 80%;
-    object-fit: scale-down;
 }
 
 .award-grid {
@@ -533,7 +587,7 @@ export default {
 
 .container h1 {
     text-align: left;
-    display: inline;
+    display: inline-block;
     border-radius: calc(var(--border-radius) + 15px);
     background-color: var(--point-color2);
     padding: 6px 14px;
@@ -581,6 +635,8 @@ export default {
 
 .project img {
     width: 40%;
+    height: 70%;
+    object-fit: cover;
 }
 
 .award img:hover,
