@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="project">
+        <div class="detail-container project">
             <div id="4" class="container">
                 <h1>#PROJECTS</h1>
                 <div class="br" />
@@ -96,7 +96,7 @@
             </div>
         </div>
 
-        <div class="award">
+        <div class="image-container award">
             <div id="5" class="container">
                 <h1>#AWARD</h1>
                 <div class="br" />
@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="award">
+        <div class="image-container cert">
             <div id="6" class="container">
                 <h1>#CERTIFICATE</h1>
                 <div class="br" />
@@ -142,7 +142,7 @@
             </div>
         </div>
 
-        <div class="award">
+        <div class="image-container edu">
             <div id="8" class="container">
                 <h1>#EDUCATION</h1>
                 <div class="br" />
@@ -156,7 +156,7 @@
             </div>
         </div>
 
-        <div class="project">
+        <div class="detail-container activity">
             <div id="9" class="container">
                 <h1>#ACTIVITY</h1>
                 <div class="br" />
@@ -475,7 +475,9 @@ export default {
     --point-color5: #fffffa;
     --point-color6: #fefaff;
     --point-color7: #fffcfa;
-    --shadow-color: #eae5ec;
+    --point-color8: #fffafc;
+    --point-color9: #fffcfa;
+    --shadow-color: #e5ece6;
     --background-color1: #f8f4fa;
     --background-color2: #fefaff;
     --font-size: 16px;
@@ -658,7 +660,7 @@ body {
     background: var(--point-color3);
 }
 
-.skills {
+.skills, .cert {
     background: var(--point-color4);
 }
 
@@ -672,6 +674,14 @@ body {
 
 .award {
     background: var(--point-color7);
+}
+
+.edu {
+    background: var(--point-color8);
+}
+
+.activity {
+    background: var(--point-color9);
 }
 
 .container {
@@ -728,8 +738,8 @@ body {
     transition: var(--transition);
 }
 
-.award img,
-.project img {
+.image-container img,
+.detail-container img {
     cursor: pointer;
     margin: 30px 12px;
     border-radius: var(--border-radius);
@@ -748,14 +758,14 @@ body {
     background-color: #fff;
 }
 
-.project img {
+.detail-container img {
     width: 40%;
     height: 82%;
     object-fit: cover;
 }
 
-.award img:hover,
-.project img:hover {
+.image-container img:hover,
+.detail-container img:hover {
     opacity: .6;
 }
 
