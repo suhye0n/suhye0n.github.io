@@ -88,10 +88,10 @@
                 <h1>#PROJECTS</h1>
                 <div class="br" />
                 <div class="image-grid">
-                    <img src="/semtle/1.png" @click="openDetail('semtlekkun')" />
-                    <img src="/card/1.png" @click="openDetail('card')" />
-                    <img src="/bokmark/1.png" @click="openDetail('bokmark')" />
-                    <img src="/cafe/1.png" @click="openDetail('cafe')" />
+                    <img src="/proj/semtle/1.png" @click="openDetail('semtlekkun')" />
+                    <img src="/proj/card/1.png" @click="openDetail('card')" />
+                    <img src="/proj/bokmark/1.png" @click="openDetail('bokmark')" />
+                    <img src="/proj/cafe/1.png" @click="openDetail('cafe')" />
                 </div>
             </div>
         </div>
@@ -101,8 +101,8 @@
                 <h1>#AWARD</h1>
                 <div class="br" />
                 <div class="award-grid">
-                    <img src="/award1.png" @click="openModal('/award1.png')" />
-                    <img src="/award2.png" @click="openModal('/award2.png')" />
+                    <img src="/award/1.png" @click="openModal('/award/1.png')" />
+                    <img src="/award/2.png" @click="openModal('/award/2.png')" />
                 </div>
             </div>
             <div v-if="showModal" class="image-modal" @click="closeModal">
@@ -390,12 +390,11 @@ export default {
             currentDetailType: null,
             currentImageIndex: 0,
             allImages: {
-                bokmark: ["/bokmark/1.png", "/bokmark/2.png", "/bokmark/3.png", "/bokmark/4.png", "/bokmark/5.png", "/bokmark/6.png"],
-                cafe: ["/cafe/1.png", "/cafe/2.png", "/cafe/3.png", "/cafe/4.png"],
-                recipe: ["/recipe/1.png"],
+                bokmark: ["/proj/bokmark/1.png", "/proj/bokmark/2.png", "/proj/bokmark/3.png", "/proj/bokmark/4.png", "/proj/bokmark/5.png", "/proj/bokmark/6.png"],
+                cafe: ["/proj/cafe/1.png", "/proj/cafe/2.png", "/proj/cafe/3.png", "/proj/cafe/4.png"],
                 semtle: ["/activity/semtle2.jpg", "/activity/semtle3.jpg"],
-                card: ["/card/1.png", "/card/2.png", "/card/3.png", "/card/4.png", "/card/5.png", "/card/6.png"],
-                semtlekkun: ["/semtle/1.png", "/semtle/2.png", "/semtle/3.png", "/semtle/4.png", "/semtle/5.png", "/semtle/6.png", "/semtle/7.png", "/semtle/8.png", "/semtle/9.png", "/semtle/10.png"],
+                card: ["/proj/card/1.png", "/proj/card/2.png", "/proj/card/3.png", "/proj/card/4.png", "/proj/card/5.png", "/proj/card/6.png"],
+                semtlekkun: ["/proj/semtle/1.png", "/proj/semtle/2.png", "/proj/semtle/3.png", "/proj/semtle/4.png", "/proj/semtle/5.png", "/proj/semtle/6.png", "/proj/semtle/7.png", "/proj/semtle/8.png", "/proj/semtle/9.png", "/proj/semtle/10.png"],
                 kite: ["/activity/kite2.jpg", "/activity/kite3.jpg", "/activity/kite4.jpg", "/activity/kite5.jpg", "/activity/kite6.jpg"]
             },
         };
