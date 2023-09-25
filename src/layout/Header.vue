@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <a href="#">@suhye0n's Portfolio</a>
+        <a href="#1">@suhye0n's Portfolio</a>
         <div @click="toggleSidebar" class="sidebar-toggler"><i class="fa fa-bars" /></div>
         <div class="header-btn" :class="{ active: showSidebar }">
             <a href="#1">ABOUT ME</a>
@@ -8,9 +8,10 @@
             <a href="#3">ARCHIVING</a>
             <a href="#4">PROJECTS</a>
             <a href="#5">AWARD</a>
-            <a href="#6">VOLUNTEER</a>
-            <a href="#7">EDUCATION</a>
-            <a href="#8">ACTIVITY</a>
+            <a href="#6">CERTIFICATE</a>
+            <a href="#7">VOLUNTEER</a>
+            <a href="#8">EDUCATION</a>
+            <a href="#9">ACTIVITY</a>
         </div>
         <div class="overlay" v-if="showSidebar" @click="toggleSidebar"></div>
     </div>

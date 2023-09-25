@@ -110,8 +110,21 @@
             </div>
         </div>
 
-        <div class="volunteer">
+        <div class="award">
             <div id="6" class="container">
+                <h1>#CERTIFICATE</h1>
+                <div class="br" />
+                <div class="award-grid">
+                    <img src="/cert/1.png" @click="openModal('/cert/1.png')" />
+                </div>
+            </div>
+            <div v-if="showModal" class="image-modal" @click="closeModal">
+                <img :src="currentAward" alt="" />
+            </div>
+        </div>
+
+        <div class="volunteer">
+            <div id="7" class="container">
                 <h1>#VOLUNTEER</h1>
                 <div class="br" />
                 <div class="pointer box" @click="openModal('/volunteer/230422.png')">
@@ -130,7 +143,7 @@
         </div>
 
         <div class="award">
-            <div id="7" class="container">
+            <div id="8" class="container">
                 <h1>#EDUCATION</h1>
                 <div class="br" />
                 <div class="award-grid">
@@ -144,7 +157,7 @@
         </div>
 
         <div class="project">
-            <div id="8" class="container">
+            <div id="9" class="container">
                 <h1>#ACTIVITY</h1>
                 <div class="br" />
                 <div class="image-grid activity">
