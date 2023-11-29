@@ -103,6 +103,7 @@
                 <div class="award-grid">
                     <img src="/award/1.png" @click="openModal('/award/1.png')" />
                     <img src="/award/2.png" @click="openModal('/award/2.png')" />
+                    <img src="/award/3.jpg" @click="openModal('/award/3.jpg')" />
                 </div>
             </div>
             <div v-if="showModal" class="image-modal" @click="closeModal">
