@@ -22,9 +22,9 @@ function ParallaxRig({ children }: { children: React.ReactNode }) {
   return <group ref={group}>{children}</group>
 }
 
-function StudioRig() {
+function StudioRig({ resolution }: { resolution: number }) {
   return (
-    <Environment resolution={384} frames={1}>
+    <Environment resolution={resolution} frames={1}>
       <Lightformer
         form="rect"
         intensity={6}
@@ -78,12 +78,12 @@ function useSceneQuality() {
     () =>
       compact
         ? {
-            cluster: { compact: true, samples: 3, resolution: 128, secondaryGlass: false },
-            dpr: [1, 1.25] as [number, number],
+            cluster: { compact: true, samples: 2, resolution: 64, secondaryGlass: false },
+            dpr: 1 as const,
           }
         : {
-            cluster: { compact: false, samples: 6, resolution: 256, secondaryGlass: true },
-            dpr: [1, 1.5] as [number, number],
+            cluster: { compact: false, samples: 3, resolution: 128, secondaryGlass: true },
+            dpr: [1, 1.25] as [number, number],
           },
     [compact],
   )
@@ -121,7 +121,7 @@ export default function GlobalScene() {
             <GlassCluster {...cluster} />
           </ParallaxRig>
 
-          <StudioRig />
+          <StudioRig resolution={cluster.compact ? 128 : 256} />
         </Suspense>
       </Canvas>
     </div>

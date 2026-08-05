@@ -6,8 +6,8 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Marquee from '@/components/Marquee'
 import ScrollTop from '@/components/ScrollTop'
-import Terminal from '@/components/Terminal'
 import { navItems } from '@/data/site'
+import { useHandheld } from '@/hooks/useHandheld'
 import { useKonamiCode } from '@/hooks/useKonamiCode'
 import { useSectionHue } from '@/hooks/useSectionHue'
 import { toggleFrenzy, useFrenzy } from '@/lib/sceneEvents'
@@ -22,6 +22,7 @@ import Projects from '@/sections/Projects'
 import Skills from '@/sections/Skills'
 
 const GlobalScene = lazy(() => import('@/three/GlobalScene'))
+const Terminal = lazy(() => import('@/components/Terminal'))
 
 const BAND = [
   'React',
@@ -42,16 +43,32 @@ const HUE_SECTIONS = ['hero', ...navItems.map((item) => item.id)]
 
 export default function App() {
   const [terminalOpen, setTerminalOpen] = useState(false)
+  const [terminalLoaded, setTerminalLoaded] = useState(false)
+  const [sceneReady, setSceneReady] = useState(false)
+  const handheld = useHandheld()
   const frenzy = useFrenzy()
 
   useSectionHue(HUE_SECTIONS)
   useKonamiCode(toggleFrenzy)
 
   useEffect(() => {
+    if (handheld) return
+
+    if (typeof window.requestIdleCallback !== 'function') {
+      const timer = window.setTimeout(() => setSceneReady(true), 300)
+      return () => window.clearTimeout(timer)
+    }
+
+    const handle = window.requestIdleCallback(() => setSceneReady(true), { timeout: 2000 })
+    return () => window.cancelIdleCallback(handle)
+  }, [handheld])
+
+  useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== 'k' || !(event.ctrlKey || event.metaKey)) return
 
       event.preventDefault()
+      setTerminalLoaded(true)
       setTerminalOpen((open) => !open)
     }
 
@@ -61,9 +78,13 @@ export default function App() {
 
   return (
     <>
-      <Suspense fallback={null}>
-        <GlobalScene />
-      </Suspense>
+      <div aria-hidden className="studio-veil pointer-events-none fixed inset-0 -z-20" />
+
+      {sceneReady && !handheld && (
+        <Suspense fallback={null}>
+          <GlobalScene />
+        </Suspense>
+      )}
 
       <div
         aria-hidden
@@ -103,7 +124,12 @@ export default function App() {
       </div>
 
       <ScrollTop />
-      <Terminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
+
+      {terminalLoaded && (
+        <Suspense fallback={null}>
+          <Terminal open={terminalOpen} onClose={() => setTerminalOpen(false)} />
+        </Suspense>
+      )}
 
       <AnimatePresence>
         {frenzy && (

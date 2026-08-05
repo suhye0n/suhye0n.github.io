@@ -138,17 +138,17 @@
 @layer components {
   .glass {
     position: relative;
-    background: linear-gradient(
-      168deg,
-      rgb(255 255 255 / 0.075) 0%,
-      rgb(255 255 255 / 0.018) 38%,
-      rgb(255 255 255 / 0.005) 62%,
-      rgb(255 255 255 / 0.035) 100%
-    );
+    background:
+      linear-gradient(
+        168deg,
+        rgb(255 255 255 / 0.075) 0%,
+        rgb(255 255 255 / 0.018) 38%,
+        rgb(255 255 255 / 0.005) 62%,
+        rgb(255 255 255 / 0.035) 100%
+      ),
+      rgb(14 14 17 / 0.82);
     border: 1px solid rgb(255 255 255 / 0.08);
     border-radius: 2px;
-    backdrop-filter: blur(14px) saturate(105%) contrast(105%);
-    -webkit-backdrop-filter: blur(14px) saturate(105%) contrast(105%);
     box-shadow:
       0 1px 0 0 rgb(255 255 255 / 0.14) inset,
       0 0 0 1px rgb(0 0 0 / 0.4),
@@ -190,6 +190,16 @@
 
   .text-gradient-anim {
     animation: var(--animate-shimmer);
+  }
+
+  .studio-veil {
+    background:
+      radial-gradient(
+        64% 52% at 50% 26%,
+        color-mix(in oklch, var(--color-accent-400) 15%, transparent),
+        transparent 72%
+      ),
+      radial-gradient(46% 38% at 80% 82%, rgb(255 255 255 / 0.045), transparent 70%);
   }
 
   .aurora {

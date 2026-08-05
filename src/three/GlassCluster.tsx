@@ -16,6 +16,7 @@ export type ClusterQuality = {
 }
 
 const SHATTER_DURATION = 1.75
+const OFFSCREEN_Y = 4.6
 
 export default function GlassCluster({
   compact,
@@ -58,11 +59,20 @@ export default function GlassCluster({
         : 0
 
     if (rig.current) {
+      const held = fever > 0.01 || broken > 0
+
+      if (rig.current.position.y > OFFSCREEN_Y && !held) {
+        rig.current.visible = false
+        return
+      }
+
+      rig.current.visible = true
+
       const pushX = state.pointer.x * (compact ? 0.3 : 0.95)
       const pushY = state.pointer.y * (compact ? 0.2 : 0.6)
 
-      const targetX = (homeX + pushX - away * (compact ? 0.5 : 2.2)) * (1 - fever * 0.92)
-      const targetY = homeY + pushY + away * 1.25 * (1 - fever)
+      const targetX = (homeX + pushX - away * (compact ? 1.4 : 3.4)) * (1 - fever * 0.92)
+      const targetY = homeY + pushY + away * 6.5 * (1 - fever)
       const targetZ = fever * 2.1
 
       rig.current.position.x += (targetX - rig.current.position.x) * damp
@@ -104,14 +114,13 @@ export default function GlassCluster({
     <group ref={rig} position={[homeX, homeY, 0]} scale={baseScale}>
       <Float speed={1.15} rotationIntensity={0.4} floatIntensity={0.85}>
         <mesh ref={knot} scale={1.28}>
-          <torusKnotGeometry args={[1, 0.36, 220, 40]} />
+          <torusKnotGeometry args={[1, 0.36, 128, 24]} />
           <MeshTransmissionMaterial
-            backside
             samples={samples}
             resolution={resolution}
             transmission={1}
-            thickness={1.9}
-            roughness={0.03}
+            thickness={2.4}
+            roughness={0.05}
             ior={1.52}
             chromaticAberration={0.14}
             anisotropicBlur={0.4}
@@ -128,7 +137,7 @@ export default function GlassCluster({
 
       {secondaryGlass && (
         <mesh ref={lens} position={[-0.9, -0.2, -1.7]} scale={1.05}>
-          <sphereGeometry args={[1, 64, 64]} />
+          <sphereGeometry args={[1, 32, 24]} />
           <MeshTransmissionMaterial
             transmissionSampler
             transmission={1}
@@ -146,7 +155,7 @@ export default function GlassCluster({
 
       <Float speed={0.9} rotationIntensity={0.7} floatIntensity={1.2}>
         <mesh position={[1.55, 1.35, -0.9]} rotation={[0.6, 0.3, 0]} scale={0.72}>
-          <torusGeometry args={[1, 0.1, 32, 128]} />
+          <torusGeometry args={[1, 0.1, 16, 64]} />
           <meshStandardMaterial ref={chrome} metalness={1} roughness={0.06} envMapIntensity={2.6} />
         </mesh>
       </Float>
