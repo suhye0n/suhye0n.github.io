@@ -63,7 +63,7 @@ export default function Carousel({
       onBlurCapture={() => setPaused(false)}
     >
       <div
-        className={`relative overflow-hidden rounded-sm border border-white/10 bg-ink-900 ${ratio}`}
+        className={`relative overflow-hidden rounded-sm border border-fg/10 bg-surface-2 ${ratio}`}
         style={{ perspective: 1400 }}
       >
         <motion.div
@@ -118,7 +118,7 @@ export default function Carousel({
             <CarouselButton side="left" onClick={() => paginate(-1)} />
             <CarouselButton side="right" onClick={() => paginate(1)} />
 
-            <span className="absolute top-4 right-4 z-20 border border-white/12 bg-ink-950/60 px-3 py-1 font-mono text-[11px] text-white/70 backdrop-blur">
+            <span className="absolute top-4 right-4 z-20 border border-fg/12 bg-surface/60 px-3 py-1 font-mono text-[11px] text-fg/70 backdrop-blur">
               {String(index + 1).padStart(2, '0')} / {String(images.length).padStart(2, '0')}
             </span>
           </>
@@ -132,7 +132,7 @@ export default function Carousel({
               <span
                 key={image}
                 aria-current="true"
-                className="relative h-1.5 w-8 overflow-hidden bg-white/15"
+                className="relative h-1.5 w-8 overflow-hidden bg-fg/15"
               >
                 <motion.span
                   key={`progress-${index}-${playing}`}
@@ -148,7 +148,7 @@ export default function Carousel({
                 type="button"
                 aria-label={`${dotIndex + 1}번째 이미지 보기`}
                 onClick={() => setState([dotIndex, dotIndex > index ? 1 : -1])}
-                className="size-1.5 rounded-full bg-white/25 transition-all hover:scale-125 hover:bg-white/60"
+                className="size-1.5 rounded-full bg-fg/25 transition-all hover:scale-125 hover:bg-fg/60"
               />
             ),
           )}
@@ -166,7 +166,7 @@ function CarouselButton({ side, onClick }: { side: 'left' | 'right'; onClick: ()
       type="button"
       onClick={onClick}
       aria-label={isLeft ? '이전 이미지' : '다음 이미지'}
-      className={`absolute top-1/2 z-20 flex size-11 -translate-y-1/2 items-center justify-center border border-white/15 bg-ink-950/60 text-white/80 backdrop-blur transition hover:border-accent-400/70 hover:bg-ink-950/80 hover:text-white ${
+      className={`absolute top-1/2 z-20 flex size-11 -translate-y-1/2 items-center justify-center border border-fg/15 bg-surface/60 text-fg/80 backdrop-blur transition hover:border-accent-400/70 hover:bg-surface/80 hover:text-fg ${
         isLeft ? 'left-3' : 'right-3'
       }`}
     >

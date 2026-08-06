@@ -88,7 +88,7 @@ export default function App() {
 
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10 bg-linear-to-b from-ink-950/0 via-ink-950/78 to-ink-950/92"
+        className="pointer-events-none fixed inset-0 -z-10 bg-linear-to-b from-surface/0 via-surface/78 to-surface/92"
       />
 
       <div className="grain relative flex min-h-dvh flex-col">

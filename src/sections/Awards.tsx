@@ -10,12 +10,7 @@ export default function Awards() {
   const [viewing, setViewing] = useState<Credential | null>(null)
 
   return (
-    <Section
-      id="awards"
-      index="05"
-      title="Award & Certificate"
-      description="논문 경진대회와 팀 프로젝트에서 받은 상, 그리고 취득한 자격증입니다."
-    >
+    <Section id="awards" index="05" title="Award & Certificate">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {awards.map((award, index) => (
           <Reveal key={award.slug} delay={index * 0.08}>
@@ -25,7 +20,7 @@ export default function Awards() {
       </div>
 
       <Reveal>
-        <h3 className="mt-16 font-mono text-xs tracking-[0.25em] text-white/40 uppercase">
+        <h3 className="mt-16 font-mono text-xs tracking-[0.25em] text-fg/40 uppercase">
           Certificate
         </h3>
       </Reveal>

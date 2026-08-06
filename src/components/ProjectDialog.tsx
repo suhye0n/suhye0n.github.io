@@ -23,12 +23,12 @@ export default function ProjectDialog({ project, onClose }: ProjectDialogProps) 
           <h3 className="text-gradient mt-8 font-display text-3xl font-semibold">
             {project.title}
           </h3>
-          <p className="mt-2 text-white/55">{project.summary}</p>
+          <p className="mt-2 text-fg/55">{project.summary}</p>
 
           <div className="hairline my-7" />
 
           <DialogBlock title="개요">
-            <ul className="space-y-2 text-sm leading-relaxed text-white/70">
+            <ul className="space-y-2 text-sm leading-relaxed text-fg/70">
               {project.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-3">
                   <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-400" />

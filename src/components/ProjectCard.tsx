@@ -26,7 +26,7 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
 
           <div className="absolute bottom-4 left-5 flex flex-wrap gap-2">
             {project.parts.map((part) => (
-              <span key={part} className="chip bg-ink-950/60">
+              <span key={part} className="chip bg-surface/60">
                 {part}
               </span>
             ))}
@@ -34,11 +34,11 @@ export default function ProjectCard({ project, onOpen }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col p-6">
-          <h3 className="font-display text-xl font-semibold text-white transition-colors group-hover:text-accent-300">
+          <h3 className="font-display text-xl font-semibold text-fg transition-colors group-hover:text-accent-300">
             {project.title}
           </h3>
 
-          <p className="mt-3 flex-1 text-sm leading-relaxed text-white/55">{project.summary}</p>
+          <p className="mt-3 flex-1 text-sm leading-relaxed text-fg/55">{project.summary}</p>
 
           <ul className="mt-5 flex flex-wrap gap-2">
             {project.stacks

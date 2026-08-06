@@ -42,15 +42,18 @@ export default function CursorGlow() {
     <div aria-hidden className="pointer-events-none fixed inset-0 z-90">
       <motion.div
         style={{ x: glowX, y: glowY }}
-        className="absolute -top-48 -left-48 size-96 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14),transparent_62%)] mix-blend-screen"
+        className="absolute -top-48 -left-48 size-96 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14),transparent_62%)] mix-blend-difference"
       />
       <motion.div
         style={{ x: ringX, y: ringY }}
         animate={{ scale: hot ? 2.2 : 1, opacity: hot ? 0.95 : 0.5, rotate: hot ? 45 : 0 }}
         transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-        className="absolute -top-3.5 -left-3.5 size-7 border border-white/75 mix-blend-screen"
+        className="absolute -top-3.5 -left-3.5 size-7 border border-white/75 mix-blend-difference"
       />
-      <motion.div style={{ x, y }} className="absolute -top-0.5 -left-0.5 size-1 bg-white" />
+      <motion.div
+        style={{ x, y }}
+        className="absolute -top-0.5 -left-0.5 size-1 bg-white mix-blend-difference"
+      />
     </div>
   )
 }

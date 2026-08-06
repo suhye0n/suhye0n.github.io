@@ -9,11 +9,11 @@ type Tone = 'out' | 'dim' | 'strong' | 'error' | 'echo'
 type Line = { tone: Tone; text: string }
 
 const TONE_CLASS: Record<Tone, string> = {
-  out: 'text-white/75',
-  dim: 'text-white/35',
-  strong: 'text-white',
-  error: 'text-white/75 [text-decoration:underline_wavy_rgba(255,255,255,0.4)]',
-  echo: 'text-white/45',
+  out: 'text-fg/75',
+  dim: 'text-fg/35',
+  strong: 'text-fg',
+  error: 'text-fg/75 [text-decoration:underline_wavy_rgb(var(--fg-rgb)/0.4)]',
+  echo: 'text-fg/45',
 }
 
 const line = (text: string, tone: Tone = 'out'): Line => ({ tone, text })
@@ -258,7 +258,7 @@ export default function Terminal({ open, onClose }: TerminalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
-          className="fixed inset-0 z-100 flex items-start justify-center bg-ink-950/70 px-4 pt-[12vh] backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-start justify-center bg-surface/70 px-4 pt-[12vh] backdrop-blur-sm"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) onClose()
           }}
@@ -273,15 +273,15 @@ export default function Terminal({ open, onClose }: TerminalProps) {
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
             className="glass flex w-full max-w-2xl flex-col overflow-hidden"
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-4 py-2.5">
-              <span className="font-mono text-[10px] tracking-[0.3em] text-white/40 uppercase">
+            <div className="flex items-center justify-between border-b border-fg/10 px-4 py-2.5">
+              <span className="font-mono text-[10px] tracking-[0.3em] text-fg/40 uppercase">
                 {profile.nameEn.toLowerCase().replace(' ', '@')} — shell
               </span>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="터미널 닫기"
-                className="font-mono text-[10px] tracking-[0.2em] text-white/35 uppercase transition-colors hover:text-white"
+                className="font-mono text-[10px] tracking-[0.2em] text-fg/35 uppercase transition-colors hover:text-fg"
               >
                 esc
               </button>
@@ -303,9 +303,9 @@ export default function Terminal({ open, onClose }: TerminalProps) {
 
             <form
               onSubmit={submit}
-              className="flex items-center gap-2 border-t border-white/10 px-4 py-3"
+              className="flex items-center gap-2 border-t border-fg/10 px-4 py-3"
             >
-              <span aria-hidden className="font-mono text-[13px] text-white">
+              <span aria-hidden className="font-mono text-[13px] text-fg">
                 &gt;
               </span>
               <input
@@ -316,7 +316,7 @@ export default function Terminal({ open, onClose }: TerminalProps) {
                 aria-label="명령 입력"
                 autoComplete="off"
                 spellCheck={false}
-                className="w-full bg-transparent font-mono text-[13px] text-white outline-none placeholder:text-white/25"
+                className="w-full bg-transparent font-mono text-[13px] text-fg outline-none placeholder:text-fg/25"
                 placeholder="help"
               />
             </form>

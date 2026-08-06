@@ -34,7 +34,7 @@ export default function ActivityDialog({ activity, onClose }: ActivityDialogProp
           <h4 className="font-mono text-xs tracking-[0.2em] text-accent-300/90 uppercase">
             주요 활동
           </h4>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/70">
+          <ul className="mt-3 space-y-2 text-sm leading-relaxed text-fg/70">
             {activity.highlights.map((highlight) => (
               <li key={highlight} className="flex gap-3">
                 <span aria-hidden className="mt-2 size-1.5 shrink-0 rounded-full bg-accent-400" />

@@ -4,12 +4,7 @@ import { archives, profile } from '@/data/site'
 
 export default function Contact() {
   return (
-    <Section
-      id="contact"
-      index="08"
-      title="Contact"
-      description="함께 만들고 싶은 것이 있다면 편하게 연락 주세요."
-    >
+    <Section id="contact" index="08" title="Contact">
       <Reveal>
         <div className="glass relative overflow-hidden rounded-sm px-6 py-16 text-center sm:px-12 sm:py-20">
           <div
@@ -17,7 +12,7 @@ export default function Contact() {
             className="aurora top-1/2 left-1/2 size-[28rem] -translate-x-1/2 -translate-y-1/2 animate-pulse-glow bg-accent-500/25"
           />
 
-          <p className="relative font-mono text-xs tracking-[0.3em] text-white/40 uppercase">
+          <p className="relative font-mono text-xs tracking-[0.3em] text-fg/40 uppercase">
             Let&rsquo;s work together
           </p>
 

@@ -8,19 +8,11 @@ type SectionProps = {
   id: string
   index: string
   title: string
-  description?: string
   children: ReactNode
   className?: string
 }
 
-export default function Section({
-  id,
-  index,
-  title,
-  description,
-  children,
-  className,
-}: SectionProps) {
+export default function Section({ id, index, title, children, className }: SectionProps) {
   return (
     <section
       id={id}
@@ -37,11 +29,11 @@ export default function Section({
       <div className="relative mx-auto max-w-6xl px-6">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="border border-white/15 px-2 py-1 font-mono text-[10px] tracking-[0.3em] text-white/80">
+            <span className="border border-fg/15 px-2 py-1 font-mono text-[10px] tracking-[0.3em] text-fg/80">
               {index}
             </span>
             <span className="hairline w-16" />
-            <span className="font-mono text-[10px] tracking-[0.4em] text-white/30 uppercase">
+            <span className="font-mono text-[10px] tracking-[0.4em] text-fg/30 uppercase">
               {id}
             </span>
           </div>
@@ -52,10 +44,6 @@ export default function Section({
           >
             <ScrambleText text={title} className="text-gradient" />
           </h2>
-
-          {description && (
-            <p className="mt-4 max-w-2xl leading-relaxed text-white/55">{description}</p>
-          )}
         </Reveal>
 
         <div className="mt-14">{children}</div>

@@ -25,7 +25,7 @@ export default function Lightbox({
         <figure className="glass rounded-sm p-3 sm:p-4">
           <Carousel images={images} alt={caption ?? ''} fit="contain" ratio={ratio} />
           {caption && (
-            <figcaption className="px-2 pt-4 pb-1 text-center text-sm text-white/60">
+            <figcaption className="px-2 pt-4 pb-1 text-center text-sm text-fg/60">
               {caption}
             </figcaption>
           )}

@@ -10,12 +10,7 @@ export default function Projects() {
   const [selected, setSelected] = useState<Project | null>(null)
 
   return (
-    <Section
-      id="projects"
-      index="04"
-      title="Projects"
-      description="카드를 누르면 화면과 사용한 기술을 자세히 볼 수 있습니다."
-    >
+    <Section id="projects" index="04" title="Projects">
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project, index) => (
           <Reveal key={project.slug} delay={index * 0.08}>

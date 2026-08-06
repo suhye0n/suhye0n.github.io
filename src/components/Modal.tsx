@@ -51,7 +51,7 @@ export default function Modal({ open, onClose, label, children, panelClassName =
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
           onClick={onClose}
-          className="fixed inset-0 z-[80] flex items-center justify-center bg-ink-950/85 p-4 backdrop-blur-md sm:p-8"
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-surface/85 p-4 backdrop-blur-md sm:p-8"
         >
           <motion.div
             ref={panelRef}
@@ -67,7 +67,7 @@ export default function Modal({ open, onClose, label, children, panelClassName =
               type="button"
               onClick={onClose}
               aria-label="닫기"
-              className="absolute -top-2 right-0 z-10 flex size-10 -translate-y-full items-center justify-center border border-white/15 bg-white/5 text-white/70 backdrop-blur transition hover:border-white/40 hover:text-white sm:-top-4"
+              className="absolute -top-2 right-0 z-10 flex size-10 -translate-y-full items-center justify-center border border-fg/15 bg-fg/5 text-fg/70 backdrop-blur transition hover:border-fg/40 hover:text-fg sm:-top-4"
             >
               <svg
                 viewBox="0 0 24 24"

@@ -9,18 +9,13 @@ export default function Education() {
   const [viewing, setViewing] = useState<Credential | null>(null)
 
   return (
-    <Section
-      id="education"
-      index="06"
-      title="Education"
-      description="POSTECH · POSCO SmartLearn 온라인 강좌 이수 내역입니다."
-    >
-      <ol className="relative border-l border-white/10 pl-6 sm:pl-10">
+    <Section id="education" index="06" title="Education">
+      <ol className="relative border-l border-fg/10 pl-6 sm:pl-10">
         {educations.map((education, index) => (
           <li key={education.slug} className="relative pb-8 last:pb-0">
             <span
               aria-hidden
-              className="absolute top-2 -left-[1.6rem] size-2.5 rounded-full bg-linear-to-br from-accent-400 to-aqua-400 ring-4 ring-ink-950 sm:-left-[2.6rem]"
+              className="absolute top-2 -left-[1.6rem] size-2.5 rounded-full bg-linear-to-br from-accent-400 to-aqua-400 ring-4 ring-surface sm:-left-[2.6rem]"
             />
 
             <Reveal delay={index * 0.06}>
@@ -51,11 +46,11 @@ export default function Education() {
                     )}
                   </span>
 
-                  <span className="mt-1.5 block font-display text-lg font-semibold text-white">
+                  <span className="mt-1.5 block font-display text-lg font-semibold text-fg">
                     {education.title}
                   </span>
 
-                  <span className="mt-0.5 block text-sm text-white/45">
+                  <span className="mt-0.5 block text-sm text-fg/45">
                     {education.note ?? education.organization}
                   </span>
                 </span>
@@ -63,7 +58,7 @@ export default function Education() {
                 <svg
                   aria-hidden
                   viewBox="0 0 24 24"
-                  className="size-5 shrink-0 text-white/25 transition-colors group-hover:text-accent-300"
+                  className="size-5 shrink-0 text-fg/25 transition-colors group-hover:text-accent-300"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.6}

@@ -26,7 +26,7 @@ export default function ScrollTop() {
           exit={{ opacity: 0, y: 14, scale: 0.92 }}
           transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
           whileHover={{ y: -3 }}
-          className="group fixed right-6 bottom-6 z-80 flex size-13 items-center justify-center border border-white/15 bg-ink-950/70 text-white/60 backdrop-blur-xl transition-colors hover:border-white/45 hover:text-white"
+          className="group fixed right-6 bottom-6 z-80 flex size-13 items-center justify-center border border-fg/15 bg-surface/70 text-fg/60 backdrop-blur-xl transition-colors hover:border-fg/45 hover:text-fg"
         >
           <svg
             aria-hidden
@@ -44,7 +44,7 @@ export default function ScrollTop() {
               strokeWidth={1.5}
               strokeDasharray={1}
               style={{ strokeDashoffset: dashOffset }}
-              className="text-white/80"
+              className="text-fg/80"
             />
           </svg>
 

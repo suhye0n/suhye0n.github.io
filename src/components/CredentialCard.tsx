@@ -22,10 +22,10 @@ export default function CredentialCard({ credential, onOpen }: CredentialCardPro
             loading="lazy"
             className="size-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />
-          <span className="absolute inset-0 bg-ink-950/0 transition-colors duration-500 group-hover:bg-ink-950/25" />
+          <span className="absolute inset-0 bg-surface/0 transition-colors duration-500 group-hover:bg-surface/25" />
 
           {credential.images.length > 1 && (
-            <span className="absolute top-3 right-3 flex items-center gap-1.5 border border-white/15 bg-ink-950/70 px-2.5 py-1 font-mono text-[10px] text-white/80 backdrop-blur">
+            <span className="absolute top-3 right-3 flex items-center gap-1.5 border border-fg/15 bg-surface/70 px-2.5 py-1 font-mono text-[10px] text-fg/80 backdrop-blur">
               <svg
                 aria-hidden
                 viewBox="0 0 24 24"
@@ -53,14 +53,14 @@ export default function CredentialCard({ credential, onOpen }: CredentialCardPro
             )}
           </div>
 
-          <h3 className="mt-2 font-display text-base leading-snug font-semibold text-white">
+          <h3 className="mt-2 font-display text-base leading-snug font-semibold text-fg">
             {credential.title}
           </h3>
 
-          <p className="mt-1.5 text-sm text-white/45">{credential.organization}</p>
+          <p className="mt-1.5 text-sm text-fg/45">{credential.organization}</p>
 
           {credential.note && (
-            <p className="mt-3 border-l border-white/12 pl-3 text-xs leading-relaxed text-white/40">
+            <p className="mt-3 border-l border-fg/12 pl-3 text-xs leading-relaxed text-fg/40">
               {credential.note}
             </p>
           )}

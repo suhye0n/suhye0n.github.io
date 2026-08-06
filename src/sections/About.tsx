@@ -12,12 +12,7 @@ const facts = [
 
 export default function About() {
   return (
-    <Section
-      id="about"
-      index="01"
-      title="About me"
-      description="화면을 그리는 일에서 시작해, 서비스가 실제로 돌아가는 데 필요한 것들을 하나씩 배워왔습니다."
-    >
+    <Section id="about" index="01" title="About me">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-16">
         <Reveal>
           <TiltCard className="group mx-auto w-full max-w-xs" amount={9}>
@@ -38,16 +33,16 @@ export default function About() {
 
         <div>
           <Reveal delay={0.1}>
-            <dl className="grid gap-px overflow-hidden rounded-sm border border-white/8 bg-white/5 sm:grid-cols-2">
+            <dl className="grid gap-px overflow-hidden rounded-sm border border-fg/8 bg-fg/5 sm:grid-cols-2">
               {facts.map((fact) => (
                 <div
                   key={fact.label}
-                  className={`bg-ink-950/70 p-5 ${fact.wide ? 'sm:col-span-2' : ''}`}
+                  className={`bg-surface/70 p-5 ${fact.wide ? 'sm:col-span-2' : ''}`}
                 >
                   <dt className="font-mono text-[11px] tracking-[0.2em] text-accent-300/80 uppercase">
                     {fact.label}
                   </dt>
-                  <dd className="mt-2 text-sm text-white/80">
+                  <dd className="mt-2 text-sm text-fg/80">
                     {fact.href ? (
                       <a href={fact.href} className="transition-colors hover:text-accent-300">
                         {fact.value}
@@ -62,7 +57,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <h3 className="mt-10 font-mono text-xs tracking-[0.25em] text-white/40 uppercase">
+            <h3 className="mt-10 font-mono text-xs tracking-[0.25em] text-fg/40 uppercase">
               Archiving
             </h3>
             <div className="mt-4 flex flex-wrap gap-2">

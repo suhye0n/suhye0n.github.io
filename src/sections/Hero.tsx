@@ -86,7 +86,7 @@ export default function Hero() {
             </span>
             <span
               aria-hidden
-              className="text-ghost block pb-2 [-webkit-text-stroke:2px_rgba(255,255,255,0.22)]"
+              className="text-ghost-static block pb-2 [-webkit-text-stroke:2px_rgba(255,255,255,0.22)]"
             >
               <SplitText text={lastName} />
             </span>
@@ -130,7 +130,7 @@ export default function Hero() {
                   href={social.href}
                   target={social.href.startsWith('http') ? '_blank' : undefined}
                   rel="noreferrer"
-                  className="btn btn-ghost"
+                  className="btn btn-ghost-static"
                 >
                   {social.label}
                 </a>
