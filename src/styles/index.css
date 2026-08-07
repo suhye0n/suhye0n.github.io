@@ -99,6 +99,13 @@
   --fg-rgb: 10 10 12;
   --surface-rgb: 248 248 250;
   --surface-2-rgb: 240 240 243;
+
+  --color-accent-300: oklch(0.46 0.05 calc(var(--hue) + 3));
+  --color-accent-400: oklch(0.4 0.07 var(--hue));
+  --color-accent-500: oklch(0.34 0.08 calc(var(--hue) - 2));
+  --color-accent-600: oklch(0.28 0.07 calc(var(--hue) - 4));
+  --color-aqua-300: oklch(0.42 0.045 calc(var(--hue) - 105));
+  --color-aqua-400: oklch(0.36 0.055 calc(var(--hue) - 107));
 }
 
 @keyframes marquee {
@@ -259,11 +266,6 @@
     -webkit-text-stroke: 1px rgb(var(--fg-rgb) / 0.06);
   }
 
-  .text-ghost-static {
-    color: transparent;
-    -webkit-text-stroke: 1px rgb(255 255 255 / 0.06);
-  }
-
   .text-etched {
     color: rgb(var(--fg-rgb) / 0.9);
     text-shadow:
@@ -382,20 +384,6 @@
     border-color: rgb(var(--fg-rgb) / 0.5);
     background: rgb(var(--fg-rgb) / 0.06);
     color: rgb(var(--fg-rgb));
-  }
-
-  .btn-ghost-static {
-    color: oklch(0.88 0.004 265);
-    border: 1px solid rgb(255 255 255 / 0.16);
-    background: rgb(255 255 255 / 0.02);
-    box-shadow: 0 1px 0 0 rgb(255 255 255 / 0.06) inset;
-  }
-
-  .btn-ghost-static:hover {
-    transform: translateY(-2px);
-    border-color: rgb(255 255 255 / 0.5);
-    background: rgb(255 255 255 / 0.06);
-    color: #fff;
   }
 
   .img-veil {

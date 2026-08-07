@@ -10,6 +10,7 @@ import { navItems } from '@/data/site'
 import { useHandheld } from '@/hooks/useHandheld'
 import { useKonamiCode } from '@/hooks/useKonamiCode'
 import { useSectionHue } from '@/hooks/useSectionHue'
+import { useTheme } from '@/hooks/useTheme'
 import { toggleFrenzy, useFrenzy } from '@/lib/sceneEvents'
 import About from '@/sections/About'
 import ActivitySection from '@/sections/Activity'
@@ -47,6 +48,7 @@ export default function App() {
   const [sceneReady, setSceneReady] = useState(false)
   const handheld = useHandheld()
   const frenzy = useFrenzy()
+  const { theme } = useTheme()
 
   useSectionHue(HUE_SECTIONS)
   useKonamiCode(toggleFrenzy)
@@ -80,7 +82,7 @@ export default function App() {
     <>
       <div aria-hidden className="studio-veil pointer-events-none fixed inset-0 -z-20" />
 
-      {sceneReady && !handheld && (
+      {sceneReady && !handheld && theme === 'dark' && (
         <Suspense fallback={null}>
           <GlobalScene />
         </Suspense>
@@ -105,7 +107,7 @@ export default function App() {
         <main id="main" className="flex-1">
           <Hero />
 
-          <div className="relative border-y border-white/8 bg-ink-950/55 py-6 backdrop-blur-sm">
+          <div className="relative border-y border-fg/8 bg-surface/55 py-6 backdrop-blur-sm">
             <span aria-hidden className="sheen" />
             <Marquee items={BAND} duration={45} />
           </div>
@@ -138,7 +140,7 @@ export default function App() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-6 left-6 z-80 border border-white/25 bg-ink-950/70 px-3 py-2 font-mono text-[10px] tracking-[0.25em] text-white uppercase backdrop-blur-xl"
+            className="fixed bottom-6 left-6 z-80 border border-fg/25 bg-surface/70 px-3 py-2 font-mono text-[10px] tracking-[0.25em] text-fg uppercase backdrop-blur-xl"
           >
             Frenzy — ↑↑↓↓←→←→BA 로 해제
           </motion.p>

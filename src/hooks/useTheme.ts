@@ -1,24 +1,31 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
-function readInitialTheme(): Theme {
+const listeners = new Set<() => void>()
+
+function readTheme(): Theme {
   if (typeof document === 'undefined') return 'dark'
 
-  const attr = document.documentElement.dataset.theme
-  return attr === 'light' ? 'light' : 'dark'
+  return document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.dataset.theme = theme
+  localStorage.setItem('theme', theme)
+  listeners.forEach((listener) => listener())
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener)
+  return () => listeners.delete(listener)
 }
 
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(readInitialTheme)
-
-  useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  const theme = useSyncExternalStore(subscribe, readTheme, () => 'dark' as Theme)
 
   const toggleTheme = useCallback(() => {
-    setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
+    applyTheme(readTheme() === 'dark' ? 'light' : 'dark')
   }, [])
 
   return { theme, toggleTheme }

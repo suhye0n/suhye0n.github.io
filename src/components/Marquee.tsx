@@ -27,10 +27,10 @@ export default function Marquee({ items, duration = 40, reverse, className }: Ma
         >
           {items.map((item) => (
             <li key={item} className="flex items-center gap-10 whitespace-nowrap">
-              <span className="font-display text-2xl font-medium tracking-tight text-white/25 transition-colors duration-500 hover:text-white sm:text-3xl">
+              <span className="font-display text-2xl font-medium tracking-tight text-fg/25 transition-colors duration-500 hover:text-fg sm:text-3xl">
                 {item}
               </span>
-              <span aria-hidden className="h-3 w-px bg-white/25" />
+              <span aria-hidden className="h-3 w-px bg-fg/25" />
             </li>
           ))}
         </ul>
