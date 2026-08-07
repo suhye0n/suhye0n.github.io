@@ -33,11 +33,6 @@ export const socials = [
 
 export const archives = [
   { label: 'GitHub', display: 'github.com/suhye0n', href: 'https://github.com/suhye0n' },
-  {
-    label: 'Programmers',
-    display: 'career.programmers.co.kr/pr/claphye0n',
-    href: 'https://career.programmers.co.kr/pr/claphye0n',
-  },
   { label: 'velog', display: 'velog.io/@devl0g', href: 'https://velog.io/@devl0g' },
 ] as const
 
@@ -248,55 +243,6 @@ export const projects: Project[] = [
       { label: 'URL', display: 'forunderwater.life', href: 'https://forunderwater.life/' },
     ],
     images: asset('projects', 'child-meal-card', 6),
-  },
-  {
-    slug: 'bokmark',
-    title: 'bokmark',
-    summary: '북마크를 서랍에 모으고 다른 사람과 공유할 수 있는 웹 플랫폼',
-    highlights: [
-      '북마크를 공유할 수 있는 웹 플랫폼을 개발했습니다.',
-      '사용자는 북마크를 웹 서랍에 추가해 모아볼 수 있습니다.',
-      '사용자는 북마크 스크랩 기능을 사용할 수 있습니다.',
-    ],
-    parts: ['Front-end', 'Back-end'],
-    stacks: [
-      { category: 'Front-end', items: ['React'] },
-      { category: 'Back-end', items: ['Firebase Authentication', 'Firebase Storage'] },
-      { category: 'Database', items: ['Firebase Database'] },
-      { category: 'Deployment', items: ['Firebase'] },
-    ],
-    links: [
-      {
-        label: 'GitHub',
-        display: 'github.com/claphye0n/bokmark',
-        href: 'https://github.com/claphye0n/bokmark',
-      },
-      { label: 'URL', display: 'b0kmark.web.app', href: 'https://b0kmark.web.app/' },
-    ],
-    images: asset('projects', 'bokmark', 6),
-  },
-  {
-    slug: 'cafe-menu',
-    title: '카페 메뉴 관리',
-    summary: '카페 메뉴를 등록하고 주문까지 처리할 수 있는 웹 플랫폼',
-    highlights: [
-      '카페 메뉴를 관리 및 주문할 수 있는 웹 플랫폼을 개발했습니다.',
-      '사용자는 카페 메뉴를 추가하고, 추가된 상품을 주문할 수 있습니다.',
-    ],
-    parts: ['Front-end', 'Back-end'],
-    stacks: [
-      { category: 'Front-end', items: ['Vue.js'] },
-      { category: 'Back-end', items: ['Spring'] },
-      { category: 'Database', items: ['MySQL'] },
-    ],
-    links: [
-      {
-        label: 'GitHub',
-        display: 'github.com/claphye0n/cafe-menu',
-        href: 'https://github.com/claphye0n/cafe-menu',
-      },
-    ],
-    images: asset('projects', 'cafe-menu', 4),
   },
 ]
 
