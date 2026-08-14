@@ -352,6 +352,14 @@ export const educations: Credential[] = [
     note: '일반과정 · 2020.01.20 ~ 2020.04.26',
     images: asset('education', 'postech-python-1-completion'),
   },
+  {
+    slug: 'cloud-security-2026',
+    title: '2026년 클라우드 서비스 보안 교육(온라인)',
+    organization: '한국정보보호산업협회(KISIA)',
+    date: '2026.08.13',
+    note: '제 2026-KICE-00051호 · 수강 기간 2026.08.13 ~ 2027.01.10',
+    images: asset('education', 'cloud-security-2026'),
+  },
 ]
 
 export type Activity = {
